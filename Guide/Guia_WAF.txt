@@ -1,0 +1,434 @@
+**Guia WAF**
+
+Instalação de Maquinas em Primeiro Lugar!
+
+Pre-Preparação
+nano /etc/selinux/config 
+         SELINUX = disabled 
+      systemctl disable firewalld 
+      systemctl stop firewalld
+
+Pacotes Servidor:
+
+yum install nano whois bind bind-utils httpd samba mdadm -y
+
+
+Master Zones--------------------------------------------------------------------------------------
+
+systemctl enable --now named
+
+Alterar o IP da maquina virtual com "Linux/Windows":
+nano /etc/named.conf 
+    listen-on port 53 e no allowquery adicionar "any;" ou um ip dado por ele.
+
+
+systemctl restart named
+
+Criação de Zonas Master:
+nano /etc/named.conf - No Final 
+    zone "pistas.gov" IN {
+    type master;
+    file "/var/named/pistas.gov.hosts";
+    };
+
+zone "300emfrente.eu" IN {
+    type master;
+    file "/var/named/300emfrente.eu.hosts";
+    };
+zone "then.com" IN {
+    type master;
+    file "/var/named/then.com.hosts";
+    };
+
+    zone "19.in-addr.arpa" IN {
+    type master;
+    file "/var/named/19.in-addr.arpa.hosts";
+    };
+
+zone "3.in-addr.arpa" IN {
+    type master;
+    file "/var/named/3.in-addr.arpa.hosts";
+    };
+
+zone "5.in-addr.arpa" IN {
+    type master;
+    file "/var/named/5.in-addr.arpa.hosts";
+    };
+
+
+(Forward)
+nano /var/named/pistas.gov.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+1165190726 ;serial
+10800 ;refresh
+3600 ; retry
+604800 ; expire
+38400 ; minimum
+)
+	IN	NS	serverlab2.as.pt.
+	IN	A	19.23.2.14
+ftp	IN	A	3.23.2.15
+webmail	IN	A	5.23.2.16
+	IN	MX	10	as-smtp.300emfrente.eu.
+
+nano /var/named/300emfrente.eu.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+1165190726 ;serial
+10800 ;refresh
+3600 ; retry
+604800 ; expire
+38400 ; minimum
+)
+	IN	NS	serverlab2.as.pt.
+	IN	A	114.21.1.14
+www	IN	A	177.8.90.1
+webmail	IN	A	31.21.1.16
+as-SMTP	IN	A	31.0.0.1
+	IN	MX	10	as-smtp.300emfrente.eu.
+
+nano /var/named/then.com.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+1165190726 ;serial
+10800 ;refresh
+3600 ; retry
+604800 ; expire
+38400 ; minimum
+)
+	IN	NS	serverlab2.as.pt.
+	IN	A	191.200.22.14
+ftp	IN	A	92.147.45.1
+webmail	IN	A	194.168.22.16
+	IN	MX	10	as-smtp.300emfrente.eu.
+    
+
+(Reverse)
+nano /var/named/19.in-addr.arpa.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+1165192116
+10800
+3600
+604800
+38400 )
+	IN	NS	serverlab2.as.pt.
+14.2.23	IN	PTR	pistas.gov.
+
+nano /var/named/3.in-addr.arpa.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+1165192116
+10800
+3600
+604800
+38400 )
+	IN	NS	serverlab2.as.pt.
+15.2.23	IN	PTR	ftp.pistas.gov.
+
+nano /var/named/5.in-addr.arpa.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+1165192116
+10800
+3600
+604800
+38400 )
+	IN	NS	serverlab2.as.pt.
+16.2.23	IN	PTR	webmail.pistas.gov.
+
+
+
+
+WebServer Apache-----------------------------------------------------------------------------------
+
+**ATENÇÃO**
+É MELHOR IR FAZENDO "systemctl restart httpd" ÀS VEZES
+
+
+Ligar o Serviço do Apache:
+systemctl enable --now httpd
+
+
+Permitir que haja uma pagina para cada utilizador:
+nano /etc/httpd/conf.d/userdir.conf
+
+
+Comentar: UserDir disabled
+Descomentar: UserDir public_html (Se tiver de mudar, não esquecer de mudar lá em baixo)
+
+Criar um utilizador:
+    Cada utilizador deve criar a pasta "public_html"
+
+Adicionar a um grupo (root):
+	usermod -aG nome-do-grupo nome-do-utilizador
+
+nano /etc/httpd/conf/httpd.conf (Adicionar listen se necessário)
+
+Para cada utilizador:
+	su {user} (Nova janela)
+	cd /home/{user}
+    O utilizador daquela página deve dar "chmod 755 /home/{user} -R" a cada utilizador para dar as permissões necessárias.
+	mkdir public_html -> start.html
+	
+	mkdir privado
+	nano .htaccess
+                       AuthName "Diretorio Privado – Nome Utilizador"
+                       AuthType Basic
+                       AuthUserFile /home/web2/.filepasswd        
+                       require valid-user
+
+
+Ir para a diretoria
+                    cd ../.. 
+                    
+                    Primeiro utilizador:
+                        htpasswd -c .filepasswd user1
+                    Os próximos:
+                        htpasswd .filepasswd user2
+
+
+                (Como ROOT)
+                Esta parte pode ser em outro sitio, idk
+                    # Deny access to the entirety of your server's filesystem. You must
+                    # explicitly permit access to web content directories in other
+                    # <Directory> blocks below.
+
+                        <Directory />
+                            AllowOverride AuthConfig (em vez de None)
+                            Require all denied
+                        </Directory>
+                
+                    
+    
+    Fazer: systemctl restart httpd (dar reboot ao sistema caso dê erro)
+
+
+
+*Opcional*
+(COMO ROOT)
+Parte de ir para a mesma página, mas por vários urls:
+Criar na "/" a pasta "/webserver"
+adicionar ficheiros, seja html ou não
+
+No final, antes de # Supplmental configuration adicionar:
+    <Directory "/webserver">
+            Options Indexes FollowSymLinks
+            AllowOverride None
+            Require all granted
+    </Directory>
+
+    Alias /web /webserver
+    Alias /webserver /webserver
+    Alias /paginainicial /webserver
+
+
+Virtual Hosts----------------------------------------------------------------------------------------
+
+Criar um utilizador com o nome do site
+
+Dar permissões à pasta do utilizador com chmod 755 /home/{user} -R
+
+Alterar o dns da máquina virtual para o ip do server linux
+
+Certificar-se com que o named e o httpd estão ligados
+
+
+Adicionar no nano /etc/named.conf perto das zonas master:
+zone "low.org" IN {
+    type master;
+    file "/var/named/low.org.hosts";
+    };
+
+zone "circle3.pt" IN {
+    type master;
+    file "/var/named/circle3.pt.hosts";
+    };
+
+zone "festas.pt" IN {
+    type master;
+    file "/var/named/festas.pt.hosts";
+    };
+
+nano /var/named/low.org.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+    1165190726 ;serial
+    10800 ;refresh
+    3600 ; retry
+    604800 ; expire
+    38400 ; minimum
+    )
+	IN	NS	serverlab2.as.pt.
+	IN	A	192.168.77.39
+www	IN	A	192.168.77.39
+
+
+nano /var/named/circle3.pt.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+    1165190726 ;serial
+    10800 ;refresh
+    3600 ; retry
+    604800 ; expire
+    38400 ; minimum
+    )
+	IN	NS	serverlab2.as.pt.
+	IN	A	192.168.77.39
+www	IN	A	192.168.77.39
+
+nano /var/named/festas.pt.hosts
+$ttl 38400
+@ IN SOA serverlab2.as.pt. mail.as.com. (
+    1165190726 ;serial
+    10800 ;refresh
+    3600 ; retry
+    604800 ; expire
+    38400 ; minimum
+    )
+	IN	NS	serverlab2.as.pt.
+	IN	A	192.168.77.39
+www	IN	A	192.168.77.39
+
+    fazer systemctl restart named
+
+    (Para confirmar, fazer nslookup dominio.com e deve aparecer o ip do server)
+
+nano /etc/httpd/conf/httpd.conf
+
+Adicionar no final:
+NameVirtualHost 192.168.77.39:9999
+<VirtualHost 192.168.77.39:9999>
+DocumentRoot "/home/low.org/"
+ServerName www.low.org
+ServerAlias low.org
+<Directory "/home/low.org">
+Options Indexes FollowSymLinks
+AllowOverride All
+Order allow,deny
+Allow from all
+Require method GET POST OPTIONS
+</Directory>
+</VirtualHost>
+
+NameVirtualHost 192.168.77.39:7777
+<VirtualHost 192.168.77.39:7777>
+DocumentRoot "/home/low.org/"
+ServerName www.low.org
+ServerAlias low.org
+<Directory "/home/low.org">
+Options Indexes FollowSymLinks
+AllowOverride All
+Order allow,deny
+Allow from all
+Require method GET POST OPTIONS
+</Directory>
+</VirtualHost>
+
+NameVirtualHost 192.168.77.39:9999
+<VirtualHost 192.168.77.39:9999>
+DocumentRoot "/home/circle3.pt/"
+ServerName www.circle3.pt
+ServerAlias circle3.pt
+<Directory "/home/circle3.pt">
+Options Indexes FollowSymLinks
+AllowOverride All
+Order allow,deny
+Allow from all
+Require method GET POST OPTIONS
+</Directory>
+</VirtualHost>
+
+NameVirtualHost 192.168.77.39:7777
+<VirtualHost 192.168.77.39:7777>
+DocumentRoot "/home/circle3.pt/"
+ServerName www.circle3.pt
+ServerAlias circle3.pt
+<Directory "/home/circle3.pt">
+Options Indexes FollowSymLinks
+AllowOverride All
+Order allow,deny
+Allow from all
+Require method GET POST OPTIONS
+</Directory>
+</VirtualHost>
+
+NameVirtualHost 192.168.77.39:9999
+<VirtualHost 192.168.77.39:9999>
+DocumentRoot "/home/festas.pt/"
+ServerName www.festas.pt
+ServerAlias festas.pt
+<Directory "/home/festas.pt">
+Options Indexes FollowSymLinks
+AllowOverride All
+Order allow,deny
+Allow from all
+Require method GET POST OPTIONS
+</Directory>
+</VirtualHost>
+
+NameVirtualHost 192.168.77.39:7777
+<VirtualHost 192.168.77.39:7777>
+DocumentRoot "/home/festas.pt/"
+ServerName www.festas.pt
+ServerAlias festas.pt
+<Directory "/home/festas.pt">
+Options Indexes FollowSymLinks
+AllowOverride All
+Order allow,deny
+Allow from all
+Require method GET POST OPTIONS
+</Directory>
+</VirtualHost>
+
+Se meter o dominio.com no browser da maquina virtual deve dar. 
+Alguns Browsers podem bugar.
+
+
+Samba---------------------------------------------------------------------------------------
+
+systemctl enable --now smb
+systemctl enable --now nmb
+
+
+Para adicionar pessoas ao samba é:
+Depois do user ser criado, fazer smbpasswd -a (nome do user)
+
+systemctl restart smb
+
+\\{ip servidor} na barra de pesquisa do windows
+
+Samba Publico:
+nano /etc/samba/smb.conf é ficheiro de config.
+
+[docspublico]
+    path=/docspublico
+    comment = Ficheiros Exportados por FTP
+    browseable = yes
+    public = yes
+    #read only = yes
+    writeable = yes
+
+Criar a diretoria no lugar dito no Paths
+chmod 777 docspublico -R
+
+systemctl restart smb
+
+
+RAID----------------------------------------------------------------------------------------
+
+Criar discos no próprio VBox com a maquina virtual desliga, adicionar os discos à máquina.
+Dar start e ao fazer "fdisk -l" deve aparecer tudo corretamente.
+
+
+4 discos total
+//Create a RAID 1 with hotspare disk
+# mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc --spare-devices=1 /dev/sdd
+
+escrever "y"
+
+
+mkfs.ext4 /dev/md0
+mkdir /data01
+mount /dev/md0 /data01

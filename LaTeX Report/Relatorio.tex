@@ -1,0 +1,702 @@
+\documentclass[a4paper]{article}
+% Pacotes necessários
+\usepackage[portuguese]{babel}
+\usepackage[backend=biber, style=apa, citestyle=apa, language=portuguese]{biblatex}
+\usepackage{csquotes}
+\addbibresource{Recursos/referencias.bib}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{siunitx} % Required for alignment
+\sisetup{
+  round-mode          = places, % Rounds numbers
+  round-precision     = 2, % to 2 places
+}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{karnaugh-map}
+\usepackage[section]{placeins}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+\usepackage{array}
+\usepackage{wrapfig} % Coloca isto no preâmbulo
+\usepackage{soul}
+\usepackage{afterpage}
+\usepackage[toc,page]{appendix}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\onehalfspacing
+
+
+% Comando para criar uma página vazia
+\newcommand\myemptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+}
+
+% Página de título principal
+\newcommand{\firsttitlepage}{
+    \begin{titlepage}
+        \centering
+        \vspace*{1cm}
+        
+        % Logos superior
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=6cm]{Recursos/Logos/LOGO_IPB} % Substitua pelo caminho da imagem
+            \vspace{0.5cm}
+        \end{figure}
+
+        % Informações da instituição
+        \large\textbf{INSTITUTO POLITÉCNICO DE BEJA} \\
+        \large\textbf{Escola Superior de Tecnologia e Gestão} \\
+        \large\textbf{Licenciatura em Engenharia Informática} \\
+        \large\textbf{Administração de Sistemas} \\
+        
+        \vspace{2cm}
+        
+        % Título do projeto
+        {\Huge \textbf{Laboratório 2}} \\
+        
+        \vspace{1.5cm}
+        
+        % Autores
+    
+        \large Martinho José Novo Caeiro - 23917 \\
+        
+        \vfill
+        
+        % Logo inferior
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=6cm]{Recursos/Logos/IPBejaESTIG.jpg} % Substitua pelo caminho da imagem
+        \end{figure}
+        
+        \vspace{1cm}
+        
+        % Local e data
+        {\large Beja, março de 2025}
+    \end{titlepage}
+}
+
+\newcommand{\secondtitlepage}{
+    \begin{titlepage}
+        \centering
+        \vspace*{1cm}
+        
+        % Informações da instituição
+        \large\textbf{INSTITUTO POLITÉCNICO DE BEJA} \\
+        \large\textbf{Escola Superior de Tecnologia e Gestão} \\
+        \large\textbf{Licenciatura em Engenharia Informática} \\
+        \large\textbf{Administração de Sistemas} \\
+        
+        \vspace{2cm}
+        
+        % Título do projeto
+        {\Huge \textbf{Laboratório 2}} \\
+        
+        \vspace{1.5cm}
+        
+        % Autores
+        \large Martinho José Novo Caeiro - 23917 \\
+
+        \vspace{2cm}
+
+        % Orientador
+        \large Orientador: Professor Armando Ventura \\
+        
+        \vfill
+        
+        % Local e data
+        {\large Beja, março de 2025}
+    \end{titlepage}
+}
+
+\begin{document}
+
+
+\pagenumbering{gobble} % Oculta numeração da página
+
+% Primeira página de título
+\firsttitlepage
+
+\secondtitlepage
+
+
+% Abstract
+\section*{\LARGE\textbf{\textit{Resumo}}}
+
+Neste relatório será abordado o processo de instalação da máquina
+Servidor com o uso do AlmaLinux, os pacotes instalados e a configuração de
+DNS, Apache Webserver e Virtual Hosts para a realização do Laboratório 2.
+Este relatório foi realizado no âmbito da Unidade Curricular de
+Administração de Sistemas (\cite{pagas}).
+
+
+
+
+\vspace{1cm}
+% Keywords
+\textbf{Keywords:} almalinux, putty, dns, apache, virtual hosts
+\newpage
+%--------------------------------------------------------------------------------------------------------------------------------------
+
+\section*{\LARGE\textbf{\textit{Abstract}}}
+
+In this report, we will address the installation process of the Server machine using
+AlmaLinux, the installed packages and the configuration of DNS, Apache webserver and
+Virtual Hosts for the completion of Laboratory 2.
+
+
+\vspace{1cm}
+% Keywords
+\textbf{Keywords:} almalinux, putty, dns, apache, virtual hosts
+\renewcommand{\contentsname}{Índice}       % Título do sumário
+\renewcommand{\listfigurename}{Índice de Figuras} % Título da lista de figuras
+
+% Início do conteúdo do relatório
+\newpage
+\doublespacing
+\tableofcontents
+\listoffigures
+\doublespacing
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Introdução}\label{intro}
+Para a realização do laboratório é necessária a configuração de uma máquina AlmaLinux Servidor.
+Em seguida são configurados os serviços DNS, Apache webserver e Virtual Hosts.
+Para a configuração de todos estes serviços foi utilizado o Putty (\cite{putty})
+que permitiu inserir comandos mais rapidamente.
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Introdução Teórica}\label{obj}
+\subsection{DNS}
+O DNS (Domain Name System) é um sistema hierárquico e distribuído que permite a resolução de nomes de domínio em endereços IP,
+permitindo que os utilizadores acedam a sites e serviços na Internet de forma mais fácil.
+
+\subsection{Apache Webserver}
+O Apache é um software de servidor HTTP de código aberto que permite a entrega de conteúdo web, como páginas HTML, imagens e vídeos,
+para os utilizadores. É altamente configurável e extensível, permitindo a adição de módulos para suportar
+diferentes funcionalidades, como autenticação, segurança e suporte a linguagens de programação.
+
+\subsection{Virtual Hosts}
+Os Virtual Hosts permitem que um único servidor Apache hospede múltiplos sites ou aplicações web, cada um com o seu próprio nome de domínio e configuração.
+Isto é feito através da criação de entradas de configuração específicas para cada domínio.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Configuração de Máquinas}\label{met}
+A instalação AlmaLinux (\cite{almalinux}) , foi feita na máquina Servidor com o uso de um .iso fornecido pelo docente da UC.
+Para a instalação foi necessário a criação de um disco de 7GB de espaço com três partições cujas quais são:
+\begin{itemize}
+	\item Partição /boot - 500MB em ext4
+	\item Partição swap - 1000MB
+	\item Partição / - Resto do Disco em ext4
+\end{itemize}
+Informações adicionais incluem 1MB de RAM e dois processadores de CPU e a rede está em modo 'bridge'.
+No instalador foi definida a palavra-passe do 'root' como '123', KDUMP desativado e nomes de rede
+'serverlab2.as.pt' para o Servidor.\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/UserMach.png}
+	\caption{Exemplo de Maquina Utilizada}
+	\label{fig:nfswarning}
+\end{figure}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Instalação de Pacotes}\label{pac}
+A firewall foi desativada com o comando \textbf{systemctl disable --now firewalld}
+e desativado o SELinux, necessitando a edição do ficheiro \textbf{/etc/selinux/config}
+e alteração da linha \textbf{SELINUX=enforcing} para \textbf{SELINUX=disabled}.
+Adicionalmente, foi necessário instalar os seguintes pacotes para a configuração dos serviços:\\
+Servidor:
+\begin{itemize}
+	\item \textbf{nano} - Para a edição de ficheiros
+	\item \textbf{whois} - Para verificar o IP da máquina
+	\item \textbf{bind} - Para o DNS
+	\item \textbf{bind-utils} - Para o DNS
+	\item \textbf{httpd} - Para o Apache Webserver
+\end{itemize}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Configuração de Serviços}\label{conf}
+
+\subsection{DNS}\label{dns}
+Primeiramente é inicializado o DNS com o comando \textbf{systemctl enable --now named}.
+Em seguida, para a configuração do DNS, foram feitas as seguintes alterações no ficheiro
+\textbf{/etc/named.conf} com o uso do Putty:
+
+\begin{itemize}
+	\item Adicionado \textit{"any;"} nas linhas de \textit{listen-on port 53} e \textit{allow-query};
+	\item Adicionadas as zonas forward e reverse.\\
+\end{itemize}
+
+\begin{minipage}{\textwidth}
+	Zonas Forward
+	\begin{verbatim}
+    zone "pistas.gov" IN {
+        type master;
+        file "/var/named/pistas.gov.hosts";
+        };
+
+
+    zone "300emfrente.eu" IN {
+        type master;
+        file "/var/named/300emfrente.eu.hosts";
+        };
+
+
+    zone "then.com" IN {
+        type master;
+        file "/var/named/then.com.hosts";
+    };
+\end{verbatim}
+
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	Zonas Reverse
+	\begin{verbatim}
+    zone "19.in-addr.arpa" IN {
+    type master;
+    file "/var/named/19.in-addr.arpa.hosts";
+    };
+
+
+    zone "3.in-addr.arpa" IN {
+    type master;
+    file "/var/named/3.in-addr.arpa.hosts";
+    };
+
+
+    zone "5.in-addr.arpa" IN {
+    type master;
+    file "/var/named/5.in-addr.arpa.hosts";
+    };
+
+    \end{verbatim}
+
+\end{minipage}
+
+%----------------------------------------------------------------------------------------------------------------------------
+\newpage
+Também necessitamos criar um ficheiro de configuração com caminho dado anteriormente em cada zona, cujos quais são:\\
+
+\begin{minipage}{\textwidth}
+	Zonas Foward
+	\begin{verbatim}
+        nano /var/named/pistas.gov.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165190726 ;serial
+        10800 ;refresh
+        3600 ; retry
+        604800 ; expire
+        38400 ; minimum
+        )
+            IN	NS	serverlab2.as.pt.
+            IN	A	19.23.2.14
+        ftp	IN	A	3.23.2.15
+        webmail	IN	A	5.23.2.16
+            IN	MX	10	as-smtp.300emfrente.eu.
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/300emfrente.eu.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165190726 ;serial
+        10800 ;refresh
+        3600 ; retry
+        604800 ; expire
+        38400 ; minimum
+        )
+            IN	NS	serverlab2.as.pt.
+            IN	A	114.21.1.14
+        www	IN	A	177.8.90.1
+        webmail	IN	A	31.21.1.16
+        as-SMTP	IN	A	31.0.0.1
+            IN	MX	10	as-smtp.300emfrente.eu.
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/then.com.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165190726 ;serial
+        10800 ;refresh
+        3600 ; retry
+        604800 ; expire
+        38400 ; minimum
+        )
+            IN	NS	serverlab2.as.pt.
+            IN	A	191.200.22.14
+        ftp	IN	A	92.147.45.1
+        webmail	IN	A	194.168.22.16
+            IN	MX	10	as-smtp.300emfrente.eu.
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	Zonas Reverse
+	\begin{verbatim}
+        nano /var/named/19.in-addr.arpa.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165192116
+        10800
+        3600
+        604800
+        38400 )
+            IN	NS	serverlab2.as.pt.
+        14.2.23	IN	PTR	pistas.gov.
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/3.in-addr.arpa.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165192116
+        10800
+        3600
+        604800
+        38400 )
+            IN	NS	serverlab2.as.pt.
+        15.2.23	IN	PTR	ftp.pistas.gov.
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/5.in-addr.arpa.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165192116
+        10800
+        3600
+        604800
+        38400 )
+            IN	NS	serverlab2.as.pt.
+        16.2.23	IN	PTR	webmail.pistas.gov.
+    \end{verbatim}
+\end{minipage}\\
+
+Após serem configurados os ficheiros, é necessário reiniciar o
+serviço DNS com o comando \textbf{systemctl restart named}.\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/DNS.png}
+	\caption{Demonstração de funcionamento do DNS}
+	\label{fig:nfswarning}
+\end{figure}
+
+Como podemos verificar, o DNS está a funcionar corretamente.
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\subsection{Apache Webserver}\label{apache}
+Primeiramente é inicializado o Apache com o comando \textbf{systemctl enable --now httpd}.
+Também é necessária a criação de dois utilizadores \textbf{lab2user1} e \textbf{lab2user2} com as palavras-passe \textbf{lab2user1} e \textbf{lab2user2} respetivamente.\\
+Estes utilizadores são adicionados ao grupo \textbf{users} com o uso dos comandos \textbf{usermod -aG users lab2user1} e \textbf{usermod -aG users lab2user2} respetivamente.
+É criada a pasta \textbf{www} na diretoria \textbf{/home} de cada utilizador e para que exista uma página web, é criado o ficheiro \textbf{start.html} na diretoria criada.\\
+Finalmente são dadas as permissões a cada utilizador com os comandos \textbf{chmod 755 /home/lab2user1 -R} e \textbf{chmod 755 /home/lab2user2 -R} respetivamente.\\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Apache1.png}
+	\caption{Demonstração de funcionamento do Apache}
+	\label{fig:nfswarning}
+\end{figure}
+
+Como podemos verificar, é possível aceder à pagina de cada utilizador através de um browser.\\
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+Para que exista uma pasta privada com autenticação, é criada a pasta \textbf{private} na diretoria \textbf{/home/www}.
+Em seguida, é necessário criar os ficheiros \textbf{.htaccess} e \textbf{.filepasswd}, com os seguintes conteúdos respetivamente:\\\\
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano .htaccess
+        AuthName "Diretorio Privado – lab2user1"
+        AuthType Basic
+        AuthUserFile /home/lab2user1/.filepasswd        
+        require valid-user
+    \end{verbatim}
+
+	\begin{verbatim}
+        nano .htaccess
+        AuthName "Diretorio Privado – lab2user2"
+        AuthType Basic
+        AuthUserFile /home/lab2user2/.filepasswd        
+        require valid-user
+    \end{verbatim}
+
+	\begin{verbatim}
+        nano .filepasswd
+        htpasswd -c /home/lab2user1/.filepasswd 123
+        (Inserir palavra-passe '123')
+    \end{verbatim}
+
+	\begin{verbatim}
+        nano .filepasswd
+        htpasswd -c /home/lab2user2/.filepasswd fsp
+        (Inserir palavra-passe 'fsp')
+    \end{verbatim}
+\end{minipage}
+
+\newpage
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Apache2.png}
+	\caption{Demonstração da autenticação}
+	\label{fig:nfswarning}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Apache3.png}
+	\caption{Demonstração da pasta privada}
+	\label{fig:nfswarning}
+\end{figure}
+
+Como podemos verificar, as permissões estão a funcionar corretamente, sendo necessário inserir a palavra-passe para aceder à pasta privada.\\
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\subsection{Virtual Hosts}\label{vhosts}
+Primeiramente é necessária a criação de três utilizadores \textbf{low.org}, \textbf{circle3.pt} e \textbf{festas.pt} com a palavra-passe \textbf{123}.
+É em seguida, criado um ficheiro \textbf{start.html} nas diretoria \textbf{/home} de cada utilizador.
+Finalmente são dadas as permissões a cada utilizador com os comandos \textbf{chmod 755 /home/low.org -R}, \textbf{chmod 755 /home/circle3.pt -R} e \textbf{chmod 755 /home/festas.pt -R} respetivamente.\\
+
+No ficheiro \textbf{/etc/named.conf} é necessário adicionar as seguintes linhas:\\\\
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        zone "low.org" IN {
+            type master;
+            file "/var/named/low.org.hosts";
+        };
+
+        zone "circle3.pt" IN {
+            type master;
+            file "/var/named/circle3.pt.hosts";
+        };
+
+        zone "festas.pt" IN {
+            type master;
+            file "/var/named/festas.pt.hosts";
+        };
+    \end{verbatim}
+\end{minipage}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+Também necessitamos criar um ficheiro de configuração com caminho dado anteriormente em cada zona, cujos quais são:\\
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/low.org.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165190726 ;serial
+        10800 ;refresh
+        3600 ; retry
+        604800 ; expire
+        38400 ; minimum
+        )
+	        IN	NS	serverlab2.as.pt.
+	        IN	A	192.168.77.39
+        www	IN	A	192.168.77.39
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/circle3.pt.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165190726 ;serial
+        10800 ;refresh
+        3600 ; retry
+        604800 ; expire
+        38400 ; minimum
+        )
+	        IN	NS	serverlab2.as.pt.
+	        IN	A	192.168.77.39
+        www	IN	A	192.168.77.39
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/festas.pt.hosts
+        $ttl 38400
+        @ IN SOA serverlab2.as.pt. mail.as.com. (
+        1165190726 ;serial
+        10800 ;refresh
+        3600 ; retry
+        604800 ; expire
+        38400 ; minimum
+        )
+	        IN	NS	serverlab2.as.pt.
+	        IN	A	192.168.77.39
+        www	IN	A	192.168.77.39
+    \end{verbatim}
+\end{minipage}
+
+%----------------------------------------------------------------------------------------------------------------------------
+Finalmente é necessário criar o ficheiro \textbf{/etc/httpd/conf/httpd.conf} com o seguinte conteúdo:\\\\
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        NameVirtualHost 192.168.77.39:9999
+        <VirtualHost 192.168.77.39:9999>
+        DocumentRoot "/home/low.org/"
+        ServerName www.low.org
+        ServerAlias low.org
+        <Directory "/home/low.org">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require method GET POST OPTIONS
+        </Directory>
+        </VirtualHost>
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        NameVirtualHost 192.168.77.39:7777
+        <VirtualHost 192.168.77.39:7777>
+        DocumentRoot "/home/low.org/"
+        ServerName www.low.org
+        ServerAlias low.org
+        <Directory "/home/low.org">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require method GET POST OPTIONS
+        </Directory>
+        </VirtualHost>
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        NameVirtualHost 192.168.77.39:9999
+        <VirtualHost 192.168.77.39:9999>
+        DocumentRoot "/home/circle3.pt/"
+        ServerName www.circle3.pt
+        ServerAlias circle3.pt
+        <Directory "/home/circle3.pt">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require method GET POST OPTIONS
+        </Directory>
+        </VirtualHost>
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        NameVirtualHost 192.168.77.39:7777
+        <VirtualHost 192.168.77.39:7777>
+        DocumentRoot "/home/circle3.pt/"
+        ServerName www.circle3.pt
+        ServerAlias circle3.pt
+        <Directory "/home/circle3.pt">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require method GET POST OPTIONS
+        </Directory>
+        </VirtualHost>
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        NameVirtualHost 192.168.77.39:9999
+        <VirtualHost 192.168.77.39:9999>
+        DocumentRoot "/home/festas.pt/"
+        ServerName www.festas.pt
+        ServerAlias festas.pt
+        <Directory "/home/festas.pt">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require method GET POST OPTIONS
+        </Directory>
+        </VirtualHost>
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        NameVirtualHost 192.168.77.39:7777
+        <VirtualHost 192.168.77.39:7777>
+        DocumentRoot "/home/festas.pt/"
+        ServerName www.festas.pt
+        ServerAlias festas.pt
+        <Directory "/home/festas.pt">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require method GET POST OPTIONS
+        </Directory>
+        </VirtualHost>
+    \end{verbatim}
+\end{minipage}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/VH.png}
+	\caption{Demonstração dos Virtual Hosts}
+	\label{fig:nfswarning}
+\end{figure}
+
+Como podemos verificar, após realizar os comandos \textbf{systemctl restart named} e \textbf{systemctl restart httpd}
+os sites já se encontram funcionais.
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Conclusão}\label{con}
+Todos os serviços foram implementados com sucesso, mesmo que o processo seja algo confuso face aos serviços implementados no Laboratório 1.
+Este laboratório permitiu adquirir conhecimentos sobre Administração de Sistemas e as diferentes possibilidades de serviços que podem ser implementados.
+Além disso, a configuração de Virtual Hosts e o uso do Apache Webserver são fundamentais para a criação de ambientes web complexos e escaláveis.
+%---------------------------------------------------------------------------------------------------------------------------
+
+\newpage
+\renewcommand{\refname}{Bibliografia} % Para artigos
+\renewcommand{\bibname}{Bibliografia} % Para livros e relatórios
+\addcontentsline{toc}{section}{Bibliografia} % Adiciona a Bibliografia ao índice
+\printbibliography
+\newpage
+\end{document}
