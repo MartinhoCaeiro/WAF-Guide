@@ -42,7 +42,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador AlmaLinux}
       \field{title}{Repositorio AlmaLinux}
-      \field{urlday}{1}
+      \field{urlday}{19}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -54,7 +54,7 @@
       \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
       \endverb
     \endentry
-    \entry{pagas}{online}{}{}
+    \entry{pagtei}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
            family={IPBeja},
@@ -75,18 +75,18 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Página AS}
-      \field{title}{Disciplina: Administração de Sistemas | IPBeja}
-      \field{urlday}{1}
+      \field{note}{Página TEI}
+      \field{title}{Disciplina: Tópicos de Engenharia Informatica | IPBeja}
+      \field{urlday}{19}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://cms.ipbeja.pt/course/view.php?id=1591
+      \verb https://cms.ipbeja.pt/course/view.php?id=2775
       \endverb
       \verb{url}
-      \verb https://cms.ipbeja.pt/course/view.php?id=1591
+      \verb https://cms.ipbeja.pt/course/view.php?id=2775
       \endverb
     \endentry
     \entry{putty}{online}{}{}
@@ -112,7 +112,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador Putty}
       \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{1}
+      \field{urlday}{19}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -149,7 +149,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador AlmaLinux}
       \field{title}{Repositorio AlmaLinux}
-      \field{urlday}{1}
+      \field{urlday}{19}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -161,7 +161,7 @@
       \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
       \endverb
     \endentry
-    \entry{pagas}{online}{}{}
+    \entry{pagtei}{online}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=018bc1b74e0d9d9f47e08c51e45a7cdb}{%
            family={IPBeja},
@@ -182,18 +182,18 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Página AS}
-      \field{title}{Disciplina: Administração de Sistemas | IPBeja}
-      \field{urlday}{1}
+      \field{note}{Página TEI}
+      \field{title}{Disciplina: Tópicos de Engenharia Informatica | IPBeja}
+      \field{urlday}{19}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://cms.ipbeja.pt/course/view.php?id=1591
+      \verb https://cms.ipbeja.pt/course/view.php?id=2775
       \endverb
       \verb{url}
-      \verb https://cms.ipbeja.pt/course/view.php?id=1591
+      \verb https://cms.ipbeja.pt/course/view.php?id=2775
       \endverb
     \endentry
     \entry{putty}{online}{}{}
@@ -219,7 +219,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador Putty}
       \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{1}
+      \field{urlday}{19}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}

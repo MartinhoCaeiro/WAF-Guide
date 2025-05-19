@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Relatorio"] 1746129532.35736 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1746194267.42272 0
-  "Recursos/referencias.bib" 1746123200 776 7f1cb469ca9a09747098ba94af86c96d ""
-  "Relatorio.bcf" 1746194266 133914 f3a64736cd9dee91718b2ffb091e60b3 "pdflatex"
+["biber Relatorio"] 0 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1747655091.72959 -1
+  "Recursos/referencias.bib" 1747651777 785 29c83b4d447c797b1f49c8b38b2c0f8f ""
+  "Relatorio.bcf" 1747655091 133915 4c2a844c94577bb5717db7b065d8e9cc "pdflatex"
   (generated)
   "Relatorio.bbl"
   "Relatorio.blg"
   (rewritten before read)
-["pdflatex"] 1746194261.86228 "c:/Users/Marti/Documents/AS/Lab2/Relatório/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1746194267.42483 0
+["pdflatex"] 1747655089.67594 "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1747655091.73049 0
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746122313 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1728.pk" 1731243685 71788 1e02f162203728df16030782559135b3 ""
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1730970230 25420 7f407e2bc8380997d24e59de81372356 ""
@@ -210,22 +210,19 @@
   "C:/Users/Marti/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/Marti/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/Marti/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
-  "Recursos/Apache1.png" 1746193300 8340 e6eecac421d494cdd2b17668ad1666af ""
-  "Recursos/Apache2.png" 1746193398 14016 352051d4988d714ea84e7715714d0c6a ""
-  "Recursos/Apache3.png" 1746193436 15906 9a1eabe807d5eff14c8f1b35adf75043 ""
   "Recursos/DNS.png" 1746192287 42362 9337a1d79d1dabdec46cbd8755ce35bf ""
   "Recursos/Logos/IPBejaESTIG.jpg" 1746117960 24524 8256cc09fbb9140893a7ec292a0eb389 ""
   "Recursos/Logos/LOGO_IPB.png" 1746117960 70931 8e4fd2cd3676e6d3adc0f137d7334c9f ""
-  "Recursos/UserMach.png" 1746129600 58331 581b014b72266448142e74d7a73ba44a ""
+  "Recursos/UserMach.png" 1747651919 59945 2dee47f52977f37c4cd4746a2956c594 ""
   "Recursos/VH.png" 1746194241 3459 6df8bd1715a9316c3a386e4f27641b52 ""
-  "Relatorio.aux" 1746194266 4665 5e6840f5e4476718c17d014880a12b36 "pdflatex"
-  "Relatorio.bbl" 1746129537 9449 255b42db6e91f4a84da93235d0f9491b "biber Relatorio"
-  "Relatorio.lof" 1746194266 711 7a8599a9fe0f653783aecd12cff69508 "pdflatex"
-  "Relatorio.out" 1746194266 1632 f103aa65d00c8f6ac418eb148b65b7ea "pdflatex"
-  "Relatorio.run.xml" 1746194266 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
-  "Relatorio.tex" 1746194260 23463 242dbb5ea29fb06509b46d60f4fa7751 ""
-  "Relatorio.toc" 1746194266 1006 5c4d2fbaf0d89440f0fe7c812b8c4235 "pdflatex"
-  "c:/Users/Marti/Documents/AS/Lab2/Relatório/Relatorio.tex" 1746194260 23463 242dbb5ea29fb06509b46d60f4fa7751 ""
+  "Relatorio.aux" 1747655091 3860 07e6071fc598ebd61f0af9b2a2550683 "pdflatex"
+  "Relatorio.bbl" 1747652515 9473 a013620a757fd9b3a40606d3566e54aa "biber Relatorio"
+  "Relatorio.lof" 1747655091 366 0e2c2c4f3eb0d843681bea75465be5d9 "pdflatex"
+  "Relatorio.out" 1747655091 1482 a0d4d64cbd4b604ed5fb85aee8f60ce5 "pdflatex"
+  "Relatorio.run.xml" 1747655091 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
+  "Relatorio.tex" 1747655088 17061 374c13a9ab39bb9d453c35a9a8a3b51d ""
+  "Relatorio.toc" 1747655091 969 7d6522d3d122d09a693d21068f3c2e3e "pdflatex"
+  "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" 1747655088 17061 374c13a9ab39bb9d453c35a9a8a3b51d ""
   (generated)
   "Relatorio.aux"
   "Relatorio.bcf"

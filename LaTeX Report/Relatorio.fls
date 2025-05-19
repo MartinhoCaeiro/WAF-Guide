@@ -1,6 +1,6 @@
-PWD c:\Users\Marti\Documents\AS\Lab2\Relatório
+PWD c:\Users\Marti\Documents\Topicos-Projeto\LaTeX Report
 INPUT C:\Users\Marti\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\Marti\Documents\AS\Lab2\Relatório\Relatorio.tex
+INPUT c:\Users\Marti\Documents\Topicos-Projeto\LaTeX Report\Relatorio.tex
 OUTPUT Relatorio.log
 INPUT C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Marti\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -416,27 +416,6 @@ INPUT .\Recursos\DNS.png
 INPUT .\Recursos\DNS.png
 INPUT .\Recursos\DNS.png
 INPUT .\Recursos\DNS.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache1.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache2.png
-INPUT .\Recursos\Apache3.png
-INPUT .\Recursos\Apache3.png
-INPUT .\Recursos\Apache3.png
-INPUT .\Recursos\Apache3.png
-INPUT .\Recursos\Apache3.png
-INPUT .\Recursos\Apache3.png
-INPUT .\Recursos\Apache3.png
 INPUT .\Recursos\VH.png
 INPUT .\Recursos\VH.png
 INPUT .\Recursos\VH.png
