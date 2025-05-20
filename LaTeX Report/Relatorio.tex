@@ -357,7 +357,7 @@ Como podemos verificar, o DNS está a funcionar corretamente.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \subsection{Virtual Hosts}\label{vhosts}
-Primeiramente é necessária a criação de três utilizadores \textbf{trinta.org}, \textbf{3emfrente.pt} e \textbf{the.com} com a palavra-passe \textbf{123}.
+Primeiramente é necessária a criação de três utilizadores \textbf{trinta.org}, \textbf{3emfrente.eu} e \textbf{the.com} com a palavra-passe \textbf{123}.
 É em seguida, é necessário criar o ficheiro \textbf{/etc/httpd/conf/httpd.conf} com o seguinte conteúdo:\\\\
 
 \begin{minipage}{\textwidth}
@@ -400,10 +400,10 @@ Primeiramente é necessária a criação de três utilizadores \textbf{trinta.or
 	\begin{verbatim}
         NameVirtualHost 192.168.30.10:80
         <VirtualHost 192.168.30.10:80>
-        DocumentRoot "/home/3emfrente.pt/"
-        ServerName www.3emfrente.pt
-        ServerAlias 3emfrente.pt
-        <Directory "/home/3emfrente.pt">
+        DocumentRoot "/home/3emfrente.eu/"
+        ServerName www.3emfrente.eu
+        ServerAlias 3emfrente.eu
+        <Directory "/home/3emfrente.eu">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -418,10 +418,10 @@ Primeiramente é necessária a criação de três utilizadores \textbf{trinta.or
 	\begin{verbatim}
         NameVirtualHost 192.168.30.10:443
         <VirtualHost 192.168.30.10:443>
-        DocumentRoot "/home/3emfrente.pt/"
-        ServerName www.3emfrente.pt
-        ServerAlias 3emfrente.pt
-        <Directory "/home/3emfrente.pt">
+        DocumentRoot "/home/3emfrente.eu/"
+        ServerName www.3emfrente.eu
+        ServerAlias 3emfrente.eu
+        <Directory "/home/3emfrente.eu">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -469,6 +469,15 @@ Primeiramente é necessária a criação de três utilizadores \textbf{trinta.or
 \end{minipage}
 
 %---------------------------------------------------------------------------------------------------------------------------
+\newpage
+Finalmente, é necessário criar as diretorias para cada um dos sites, com os seguintes comandos:
+\begin{verbatim}
+    mkdir /home/trinta.org/public_html
+    mkdir /home/3emfrente.eu/public_html
+    mkdir /home/the.com/public_html
+\end{verbatim}
+Após a criação das diretorias, é necessário criar um ficheiro \textbf{index.html} em cada um dos diretórios com o seguinte conteúdo:\\
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/VH.png}
@@ -482,6 +491,42 @@ os sites já se encontram funcionais.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{WAF}\label{con}
+Para a configuração do WAF, foram feitas as seguintes alterações no ficheiro \textbf{/etc/httpd/conf.d/modsecurity.conf}:
+\begin{verbatim}
+    SecRuleEngine On
+    SecAuditEngine On
+    SecAuditLog /var/log/httpd/modsec_audit.log
+    IncludeOptional modsecurity.d/*.conf
+    IncludeOptional modsecurity.d/activated_rules/*.conf
+\end{verbatim}
+
+Na diretoria \textbf{/etc/modsecurity.d/} foi adicionada a pasta \textbf{activated.rules}.
+Em seguida foi copiado o conteúdo da pasta \textbf{/usr/share/modsecurity-crs/base.rules/*} para a pasta \textbf{activated.rules}.
+
+Finalmente, foram feitas as seguintes alterações no ficheiro \textbf{/etc/httpd/conf/httpd.conf}:
+\begin{verbatim}
+<VirtualHost *:80>
+    ServerName www.trinta.org
+    ProxyPreserveHost On
+    ProxyPass / http://192.168.30.10:80/
+    ProxyPassReverse / http://192.168.30.10:80/
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName www.3emfrente.eu
+    ProxyPreserveHost On
+    ProxyPass / http://192.168.30.10:80/
+    ProxyPassReverse / http://192.168.30.10:80/
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName www.the.com
+    ProxyPreserveHost On
+    ProxyPass / http://192.168.30.10:80/
+    ProxyPassReverse / http://192.168.30.10:80/
+</VirtualHost>
+\end{verbatim}
+
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage

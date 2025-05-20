@@ -99,8 +99,8 @@ nano /etc/httpd/conf/httpd.conf
 
 Adicionar no final:
 # --- www1.trinta.org ---
-NameVirtualHost 192.168.30.10:80
-<VirtualHost 192.168.30.10:80>
+NameVirtualHost *:80
+<VirtualHost *:80>
     DocumentRoot "/home/www1.trinta.org"
     ServerName www1.trinta.org
     ServerAlias trinta.org
@@ -113,8 +113,8 @@ NameVirtualHost 192.168.30.10:80
     </Directory>
 </VirtualHost>
 
-NameVirtualHost 192.168.30.10:443
-<VirtualHost 192.168.30.10:443>
+NameVirtualHost *:443
+<VirtualHost *:443>
     DocumentRoot "/home/www1.trinta.org"
     ServerName www1.trinta.org
     ServerAlias trinta.org
@@ -131,8 +131,8 @@ NameVirtualHost 192.168.30.10:443
 </VirtualHost>
 
 # --- www1.3emfrente.eu ---
-NameVirtualHost 192.168.30.10:80
-<VirtualHost 192.168.30.10:80>
+NameVirtualHost *:80
+<VirtualHost *:80>
     DocumentRoot "/home/www1.3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
@@ -145,8 +145,8 @@ NameVirtualHost 192.168.30.10:80
     </Directory>
 </VirtualHost>
 
-NameVirtualHost 192.168.30.10:443
-<VirtualHost 192.168.30.10:443>
+NameVirtualHost *:443
+<VirtualHost *:443>
     DocumentRoot "/home/www1.3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
@@ -163,8 +163,8 @@ NameVirtualHost 192.168.30.10:443
 </VirtualHost>
 
 # --- www1.the.com ---
-NameVirtualHost 192.168.30.10:80
-<VirtualHost 192.168.30.10:80>
+NameVirtualHost *:80
+<VirtualHost *:80>
     DocumentRoot "/home/www1.the.com"
     ServerName www1.the.com
     ServerAlias the.com
@@ -177,8 +177,8 @@ NameVirtualHost 192.168.30.10:80
     </Directory>
 </VirtualHost>
 
-NameVirtualHost 192.168.30.10:443
-<VirtualHost 192.168.30.10:443>
+NameVirtualHost *:443
+<VirtualHost *:443>
     DocumentRoot "/home/www1.the.com"
     ServerName www1.the.com
     ServerAlias the.com
@@ -194,17 +194,17 @@ NameVirtualHost 192.168.30.10:443
     </Directory>
 </VirtualHost>
 
-adduser www1.trinta.org
-adduser www1.3emfrente.eu
-adduser www1.the.com
+adduser trinta.org
+adduser 3emfrente.eu
+adduser the.com
 
-nano /home/www1.trinta.org/index.html
+nano /home/www1.trinta.org/public_html/index.html
 "<h1>www1.trinta.org ativo!</h1>"
  
-nano /home/www1.3emfrente.eu/index.html
+nano /home/www1.3emfrente.eu/public_html/index.html
 "<h1>www1.3emfrente.eu ativo!</h1>"
 
-nano /home/www1.the.com/index.html
+nano /home/www1.the.com/public_html/index.html
 "<h1>www1.the.com ativo!</h1>" 
 
 for domain in www1.trinta.org www1.3emfrente.eu www1.the.com; do

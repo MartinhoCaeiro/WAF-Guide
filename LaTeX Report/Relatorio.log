@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  19 MAY 2025 12:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  20 MAY 2025 12:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1149,8 +1149,8 @@ Package pdftex.def Info: Recursos/DNS.png  used on input line 350.
 
 
 [8 <./Recursos/DNS.png>]
-Overfull \hbox (4.40372pt too wide) in paragraph at lines 360--362
-[]\T1/cmr/m/n/10 Primeiramente é ne-ces-sá-ria a cri-a-ção de três uti-li-za-do-res \T1/cmr/bx/n/10 trinta.org\T1/cmr/m/n/10 , \T1/cmr/bx/n/10 3em-frente.pt \T1/cmr/m/n/10 e \T1/cmr/bx/n/10 the.com
+Overfull \hbox (5.20213pt too wide) in paragraph at lines 360--362
+[]\T1/cmr/m/n/10 Primeiramente é ne-ces-sá-ria a cri-a-ção de três uti-li-za-do-res \T1/cmr/bx/n/10 trinta.org\T1/cmr/m/n/10 , \T1/cmr/bx/n/10 3em-frente.eu \T1/cmr/m/n/10 e \T1/cmr/bx/n/10 the.com
  []
 
 
@@ -1202,22 +1202,36 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 453--470
 []$[]$ 
  []
 
-<Recursos/VH.png, id=164, 206.57175pt x 49.98676pt>
-File: Recursos/VH.png Graphic file (type png)
-<use Recursos/VH.png>
-Package pdftex.def Info: Recursos/VH.png  used on input line 474.
-(pdftex.def)             Requested size: 334.60422pt x 80.9712pt.
 
 
 [11]
 
-[12 <./Recursos/VH.png>]
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
-[13]
+ []
+
+<Recursos/VH.png, id=172, 206.57175pt x 49.98676pt>
+File: Recursos/VH.png Graphic file (type png)
+<use Recursos/VH.png>
+Package pdftex.def Info: Recursos/VH.png  used on input line 483.
+(pdftex.def)             Requested size: 334.60422pt x 80.9712pt.
+
+
+[13 <./Recursos/VH.png>]
+Overfull \hbox (106.16498pt too wide) in paragraph at lines 494--495
+[]\T1/cmr/m/n/10 Para a con-fi-gu-ra-ção do WAF, fo-ram fei-tas as se-guin-tes al-te-ra-ções no fi-cheiro \T1/cmr/bx/n/10 /etc/httpd/conf.d/modsecurity.conf\T1/cmr/m/n/10 : 
+ []
+
+
 
 [14]
 
-[15] (Relatorio.aux)
+[15]
+
+[16]
+
+[17] (Relatorio.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-10-09>
@@ -1233,17 +1247,17 @@ Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36804 strings out of 473897
- 739206 string characters out of 5726462
+ 36806 strings out of 473897
+ 739220 string characters out of 5726462
  1601292 words of memory out of 5000000
  59125 multiletter control sequences out of 15000+600000
  568747 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,6n,107p,754b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (20 pages, 321672 bytes).
+Output written on Relatorio.pdf (22 pages, 325346 bytes).
 PDF statistics:
- 642 PDF objects out of 1000 (max. 8388607)
- 42 named destinations out of 1000 (max. 500000)
+ 655 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
  142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
