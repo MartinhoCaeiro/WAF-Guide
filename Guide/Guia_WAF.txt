@@ -99,7 +99,6 @@ nano /etc/httpd/conf/httpd.conf
 
 Adicionar no final:
 # --- www1.trinta.org ---
-NameVirtualHost *:80
 <VirtualHost *:80>
     DocumentRoot "/home/www1.trinta.org"
     ServerName www1.trinta.org
@@ -113,7 +112,6 @@ NameVirtualHost *:80
     </Directory>
 </VirtualHost>
 
-NameVirtualHost *:443
 <VirtualHost *:443>
     DocumentRoot "/home/www1.trinta.org"
     ServerName www1.trinta.org
@@ -131,7 +129,6 @@ NameVirtualHost *:443
 </VirtualHost>
 
 # --- www1.3emfrente.eu ---
-NameVirtualHost *:80
 <VirtualHost *:80>
     DocumentRoot "/home/www1.3emfrente.eu"
     ServerName www1.3emfrente.eu
@@ -145,7 +142,6 @@ NameVirtualHost *:80
     </Directory>
 </VirtualHost>
 
-NameVirtualHost *:443
 <VirtualHost *:443>
     DocumentRoot "/home/www1.3emfrente.eu"
     ServerName www1.3emfrente.eu
@@ -163,7 +159,6 @@ NameVirtualHost *:443
 </VirtualHost>
 
 # --- www1.the.com ---
-NameVirtualHost *:80
 <VirtualHost *:80>
     DocumentRoot "/home/www1.the.com"
     ServerName www1.the.com
@@ -177,7 +172,6 @@ NameVirtualHost *:80
     </Directory>
 </VirtualHost>
 
-NameVirtualHost *:443
 <VirtualHost *:443>
     DocumentRoot "/home/www1.the.com"
     ServerName www1.the.com
