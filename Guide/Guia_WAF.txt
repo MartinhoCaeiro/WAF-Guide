@@ -100,10 +100,10 @@ nano /etc/httpd/conf/httpd.conf
 Adicionar no final:
 # --- www1.trinta.org ---
 <VirtualHost *:80>
-    DocumentRoot "/home/www1.trinta.org"
+    DocumentRoot "/home/trinta.org"
     ServerName www1.trinta.org
     ServerAlias trinta.org
-    <Directory "/home/www1.trinta.org">
+    <Directory "/home/trinta.org">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -113,13 +113,13 @@ Adicionar no final:
 </VirtualHost>
 
 <VirtualHost *:443>
-    DocumentRoot "/home/www1.trinta.org"
+    DocumentRoot "/home/trinta.org"
     ServerName www1.trinta.org
     ServerAlias trinta.org
     SSLEngine on
     SSLCertificateFile /etc/pki/tls/certs/www1.trinta.org.crt
     SSLCertificateKeyFile /etc/pki/tls/private/www1.trinta.org.key
-    <Directory "/home/www1.trinta.org">
+    <Directory "/home/trinta.org">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -130,10 +130,10 @@ Adicionar no final:
 
 # --- www1.3emfrente.eu ---
 <VirtualHost *:80>
-    DocumentRoot "/home/www1.3emfrente.eu"
+    DocumentRoot "/home/3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
-    <Directory "/home/www1.3emfrente.eu">
+    <Directory "/home/3emfrente.eu">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -143,13 +143,13 @@ Adicionar no final:
 </VirtualHost>
 
 <VirtualHost *:443>
-    DocumentRoot "/home/www1.3emfrente.eu"
+    DocumentRoot "/home/3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
     SSLEngine on
     SSLCertificateFile /etc/pki/tls/certs/www1.3emfrente.eu.crt
     SSLCertificateKeyFile /etc/pki/tls/private/www1.3emfrente.eu.key
-    <Directory "/home/www1.3emfrente.eu">
+    <Directory "/home/3emfrente.eu">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -160,10 +160,10 @@ Adicionar no final:
 
 # --- www1.the.com ---
 <VirtualHost *:80>
-    DocumentRoot "/home/www1.the.com"
+    DocumentRoot "/home/the.com"
     ServerName www1.the.com
     ServerAlias the.com
-    <Directory "/home/www1.the.com">
+    <Directory "/home/the.com">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
@@ -173,7 +173,7 @@ Adicionar no final:
 </VirtualHost>
 
 <VirtualHost *:443>
-    DocumentRoot "/home/www1.the.com"
+    DocumentRoot "/home/the.com"
     ServerName www1.the.com
     ServerAlias the.com
     SSLEngine on
@@ -192,13 +192,13 @@ adduser trinta.org
 adduser 3emfrente.eu
 adduser the.com
 
-nano /home/www1.trinta.org/public_html/index.html
+nano /home/trinta.org/public_html/index.html
 "<h1>www1.trinta.org ativo!</h1>"
  
-nano /home/www1.3emfrente.eu/public_html/index.html
+nano /home/3emfrente.eu/public_html/index.html
 "<h1>www1.3emfrente.eu ativo!</h1>"
 
-nano /home/www1.the.com/public_html/index.html
+nano /home/the.com/public_html/index.html
 "<h1>www1.the.com ativo!</h1>" 
 
 for domain in www1.trinta.org www1.3emfrente.eu www1.the.com; do
