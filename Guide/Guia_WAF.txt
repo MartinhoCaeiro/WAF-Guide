@@ -10,7 +10,7 @@ nano /etc/selinux/config
 
 Pacotes Servidor:
 
-yum install nano whois bind bind-utils httpd mod_ssl -y
+yum install nano whois bind bind-utils httpd -y
 
 
 Master Zones--------------------------------------------------------------------------------------
@@ -54,10 +54,8 @@ $TTL 86400
         86400 )    ; Minimum TTL
 
 	IN	NS	server.tei.pt.
-server	IN	A	192.168.30.10
-@	IN	A	192.168.30.5
-www	IN	A	192.168.30.5
-www1	IN	A	192.168.30.10
+@	IN	A	(ip da waf)
+www	IN	A	(ip da waf)
 
 
 nano /var/named/3emfrente.eu.hosts
@@ -70,10 +68,8 @@ $TTL 86400
         86400 )    ; Minimum TTL
 
 	IN	NS	server.tei.pt.
-server	IN	A	192.168.30.10
-@	IN	A	192.168.30.5
-www	IN	A	192.168.30.5
-www1	IN	A	192.168.30.10
+@	IN	A	(ip da waf)
+www	IN	A	(ip da waf)
 
 
 nano /var/named/the.com.hosts
@@ -86,11 +82,15 @@ $TTL 86400
         86400 )    ; Minimum TTL
 
 	IN	NS	server.tei.pt.
-server	IN	A	192.168.30.10
-@	IN	A	192.168.30.5
-www	IN	A	192.168.30.5
-www1	IN	A	192.168.30.10
+@	IN	A	(ip da waf)
+www	IN	A	(ip da waf)
 
+cp trinta.org.hosts tei.pt.hosts
+cp 3emfrente.eu.hosts tei.pt.hosts
+cp the.com.hosts tei.pt.hosts
+
+mudar www para waf
+e adicionar server IN A (ip da waf)
 
 Virtual Hosts----------------------------------------------------------------------------------------
 
@@ -188,92 +188,60 @@ Adicionar no final:
     </Directory>
 </VirtualHost>
 
-adduser trinta.org
-adduser 3emfrente.eu
-adduser the.com
-
-nano /home/trinta.org/public_html/index.html
-"<h1>www1.trinta.org ativo!</h1>"
- 
-nano /home/3emfrente.eu/public_html/index.html
-"<h1>www1.3emfrente.eu ativo!</h1>"
-
-nano /home/the.com/public_html/index.html
-"<h1>www1.the.com ativo!</h1>" 
-
-for domain in www1.trinta.org www1.3emfrente.eu www1.the.com; do
-  sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout /etc/pki/tls/private/$domain.key \
-  -out /etc/pki/tls/certs/$domain.crt \
-  -subj "/C=PT/ST=Beja/L=Beja/O=WAF/OU=TI/CN=$domain"
-done
-
-
 sudo systemctl restart httpd
 
 
 WAF---------------------------------------------------------------------------------------
 
-yum install nano httpd mod_security mod_security_crs mod_geoip GeoIP GeoIP-data -y
+yum install nano -y
 
-nano /etc/httpd/conf.d/mod_security.conf
-<IfModule security2_module>
-    SecRuleEngine On
-    SecAuditEngine On
-    SecAuditLog /var/log/httpd/modsec_audit.log
-    IncludeOptional modsecurity.d/*.conf
-    IncludeOptional modsecurity.d/activated_rules/*.conf
-</IfModule>
+nano /etc/yum.repos.d/nginx.repo
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
 
-cd /etc/modsecurity.d/
-mkdir activated_rules
-cp -r /usr/share/modsecurity-crs/base_rules/* activated_rules/
-
-nano /etc/modsecurity.d/modsecurity.conf
-
-SecGeoLookupDb /usr/share/GeoIP/GeoIP.dat
-SecRule REMOTE_ADDR "@ipMatch 192.168.30.50" \\
-    "id:1001,phase:1,deny,status:403,msg:'IP bloqueado na blacklist'"
-SecRule REQUEST_HEADERS:User-Agent "@pmFromFile /etc/modsecurity.d/blacklist-useragents.txt" \\
-    "id:1002,phase:1,deny,status:403,msg:'User-Agent bloqueado'"
-SecRule GEO:COUNTRY_CODE "@streq CN" \\
-    "id:1003,phase:1,deny,status:403,msg:'Acesso da China bloqueado'"
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
 
 
-nano /etc/modsecurity.d/blacklist-useragents.txt
-curl
-wget
-nikto
-python-requests
+yum install nginx-1.26.3 -y
+yum install epel-release -y
+curl -s https://repo.bunkerweb.io/install/script.rpm.sh | sudo bash
+yum check-update
+yum install bunkerweb-1.6.1 -y
 
-nano /etc/httpd/conf.d/geoip.conf
-<IfModule mod_geoip.c>
-  GeoIPEnable On
-  GeoIPDBFile /usr/share/GeoIP/GeoIP.dat
-</IfModule>
-
-nano /etc/httpd/conf/httpd.conf
-<VirtualHost *:80>
-    ServerName www.trinta.org
-    ProxyPreserveHost On
-    ProxyPass / http://192.168.30.10:80/
-    ProxyPassReverse / http://192.168.30.10:80/
-</VirtualHost>
-
-<VirtualHost *:80>
-    ServerName www.3emfrente.eu
-    ProxyPreserveHost On
-    ProxyPass / http://192.168.30.10:80/
-    ProxyPassReverse / http://192.168.30.10:80/
-</VirtualHost>
-
-<VirtualHost *:80>
-    ServerName www.the.com
-    ProxyPreserveHost On
-    ProxyPass / http://192.168.30.10:80/
-    ProxyPassReverse / http://192.168.30.10:80/
-</VirtualHost>
-
-systemctl restart httpd
+sudo yum versionlock add nginx
+sudo yum versionlock add bunkerweb
 
 
+fazer no browser https://192.168.1.100/setup
+
+username: root
+password: Tei1234.
+
+Para aceder novamente: https://192.168.1.100/
+
+Services -> New Service -> www1.trinta.org
+    Next -> Reverse Proxy (Ip do servidor)
+    Next -> Antibot (Recaptcha)
+    Next -> Country Block (PT)
+    Save
+Services -> New Service -> www1.3emfrente.eu
+    Next -> Reverse Proxy (Ip do servidor)
+    Next -> Antibot (Recaptcha)
+    Next -> Country Block (PT)
+    Save
+Services -> New Service -> www1.the.com
+    Next -> Reverse Proxy (Ip do servidor)
+    Next -> Antibot (Recaptcha)
+    Next -> Country Block (PT)
+    Save
