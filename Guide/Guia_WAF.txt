@@ -15,7 +15,10 @@ yum install nano whois bind bind-utils httpd -y
 
 Master Zones--------------------------------------------------------------------------------------
 
-systemctl enable --now named
+systemctl enable named
+systemctl start named
+systemctl enable httpd
+systemctl start httpd
 
 Alterar o IP da maquina virtual com "Linux/Windows":
 nano /etc/named.conf 
@@ -26,20 +29,25 @@ systemctl restart named
 
 Criação de Zonas Master:
 nano /etc/named.conf - No Final 
-    zone "trinta.org" {
-        type master;
-        file "/var/named/trinta.org.hosts";
+zone "trinta.org" {
+    type master;
+    file "/var/named/trinta.org.hosts";
+};
+
+zone "3emfrente.eu" {
+    type master;
+    file "/var/named/3emfrente.eu.hosts";
+};
+
+zone "the.com" {
+    type master;
+    file "/var/named/the.com.hosts";
     };
 
-    zone "3emfrente.eu" {
-        type master;
-        file "/var/named/3emfrente.eu.hosts";
-    };
-
-    zone "the.com" {
-        type master;
-        file "/var/named/the.com.hosts";
-    };
+zone "tei.pt" {
+    type master;
+    file "/var/named/tei.pt.hosts";
+};
 
 
 
@@ -54,7 +62,7 @@ $TTL 86400
         86400 )    ; Minimum TTL
 
 	IN	NS	server.tei.pt.
-@	IN	A	(ip da waf)
+	IN	A	(ip da waf)
 www	IN	A	(ip da waf)
 
 
@@ -68,7 +76,7 @@ $TTL 86400
         86400 )    ; Minimum TTL
 
 	IN	NS	server.tei.pt.
-@	IN	A	(ip da waf)
+	IN	A	(ip da waf)
 www	IN	A	(ip da waf)
 
 
@@ -82,24 +90,43 @@ $TTL 86400
         86400 )    ; Minimum TTL
 
 	IN	NS	server.tei.pt.
-@	IN	A	(ip da waf)
+	IN	A	(ip da waf)
 www	IN	A	(ip da waf)
 
-cp trinta.org.hosts tei.pt.hosts
-cp 3emfrente.eu.hosts tei.pt.hosts
-cp the.com.hosts tei.pt.hosts
+nano /var/named/tei.pt.hosts
+$TTL 86400
+@   IN  SOA server.tei.pt. admin.tei.pt. (
+        2024051701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400 )    ; Minimum TTL
 
-mudar www para waf
-e adicionar server IN A (ip da waf)
+	IN	NS	server.tei.pt.
+	IN	A	(ip da waf)
+waf	IN	A	(ip da waf)
+server  IN  A   (ip da waf)
 
 Virtual Hosts----------------------------------------------------------------------------------------
 
+adduser trinta.org
+adduser 3emfrente.eu
+adduser the.com
+
+nano /home/trinta.org/index.html
+<h1>Bem-vindo ao Trinta.org</h1>
+
+nano /home/3emfrente.eu/index.html
+<h1>Bem-vindo ao 3emfrente.eu</h1>
+
+nano /home/the.com/index.html
+<h1>Bem-vindo ao The.com</h1>
 
 nano /etc/httpd/conf/httpd.conf
 
 Adicionar no final:
 # --- www1.trinta.org ---
-<VirtualHost *:80>
+<VirtualHost (ip do servidor):80>
     DocumentRoot "/home/trinta.org"
     ServerName www1.trinta.org
     ServerAlias trinta.org
@@ -112,7 +139,7 @@ Adicionar no final:
     </Directory>
 </VirtualHost>
 
-<VirtualHost *:443>
+<VirtualHost (ip do servidor):443>
     DocumentRoot "/home/trinta.org"
     ServerName www1.trinta.org
     ServerAlias trinta.org
@@ -129,7 +156,7 @@ Adicionar no final:
 </VirtualHost>
 
 # --- www1.3emfrente.eu ---
-<VirtualHost *:80>
+<VirtualHost (ip do servidor):80>
     DocumentRoot "/home/3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
@@ -142,7 +169,7 @@ Adicionar no final:
     </Directory>
 </VirtualHost>
 
-<VirtualHost *:443>
+<VirtualHost (ip do servidor):443>
     DocumentRoot "/home/3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
@@ -159,7 +186,7 @@ Adicionar no final:
 </VirtualHost>
 
 # --- www1.the.com ---
-<VirtualHost *:80>
+<VirtualHost (ip do servidor):80>
     DocumentRoot "/home/the.com"
     ServerName www1.the.com
     ServerAlias the.com
@@ -172,7 +199,7 @@ Adicionar no final:
     </Directory>
 </VirtualHost>
 
-<VirtualHost *:443>
+<VirtualHost (ip do servidor):443>
     DocumentRoot "/home/the.com"
     ServerName www1.the.com
     ServerAlias the.com
