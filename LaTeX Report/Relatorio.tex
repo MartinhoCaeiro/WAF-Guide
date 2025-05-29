@@ -170,6 +170,7 @@ Virtual Hosts and WAF for the completion of the Project.
 \newpage
 \doublespacing
 \tableofcontents
+\newpage
 \listoffigures
 \doublespacing
 
@@ -230,19 +231,15 @@ Servidor:
 	\item \textbf{whois} - Para verificar o IP da máquina
 	\item \textbf{bind} - Para o DNS
 	\item \textbf{bind-utils} - Para o DNS
-	\item \textbf{httpd} - Para as Virtual Hosts
-	\item \textbf{mod\_ssl} - Para comunicações por SSL \\
+	\item \textbf{httpd} - Para as Virtual Hosts \\
 \end{itemize}
 
 WAF:
 \begin{itemize}
 	\item \textbf{nano} - Para a edição de ficheiros
-	\item \textbf{httpd} - Para as Virtual Hosts
-	\item \textbf{mod\_security} - Para o WAF
-	\item \textbf{mod\_security\_crs} - Para o WAF
-	\item \textbf{mod\_geoip} - Para o WAF
-	\item \textbf{GeoIP} - Para o WAF
-	\item \textbf{GeoIP\-data} - Para o WAF
+	\item \textbf{nginx} - Para a WAF
+	\item \textbf{epel-release} - Para a WAF
+	\item \textbf{bunkerweb} - Para a WAF
 \end{itemize}
 
 %---------------------------------------------------------------------------------------------------------------------------
@@ -256,7 +253,7 @@ Em seguida, para a configuração do DNS, foram feitas as seguintes alterações
 
 \begin{itemize}
 	\item Adicionado \textit{"any;"} nas linhas de \textit{listen-on port 53} e \textit{allow-query};
-	\item Adicionadas as zonas forward e reverse.\\
+	\item Adicionadas as zonas forward.\\
 \end{itemize}
 
 \begin{minipage}{\textwidth}
@@ -276,6 +273,11 @@ Em seguida, para a configuração do DNS, foram feitas as seguintes alterações
         type master;
         file "/var/named/the.com.hosts";
     };
+
+    zone "tei.pt" {
+        type master;
+        file "/var/named/tei.pt.hosts";
+    };
 \end{verbatim}
 
 \end{minipage}
@@ -288,60 +290,73 @@ Também necessitamos criar um ficheiro de configuração com caminho dado anteri
 	Zonas Foward
 	\begin{verbatim}
         nano /var/named/trinta.org.hosts
-        $TTL 38400
+        $TTL 86400
         @   IN  SOA server.tei.pt. admin.tei.pt. (
-        1165190726 ; Serial
-        10800      ; Refresh
-        3600       ; Retry
+        2024051701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
         604800     ; Expire
-        38400 )    ; Minimum TTL
+        86400 )    ; Minimum TTL
 
 	        IN	NS	server.tei.pt.
-        server	IN	A	192.168.30.10
-        @	IN	A	192.168.30.5
-        www	IN	A	192.168.30.5
-        www1	IN	A	192.168.30.10
+	        IN	A	192.168.1.100
+        www	IN	A	192.168.1.100
     \end{verbatim}
 \end{minipage}
 
 \begin{minipage}{\textwidth}
 	\begin{verbatim}
         nano /var/named/3emfrente.eu.hosts
-        $TTL 38400
+        $TTL 86400
         @   IN  SOA server.tei.pt. admin.tei.pt. (
-        1165190726 ; Serial
-        10800      ; Refresh
-        3600       ; Retry
+        2024051701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
         604800     ; Expire
-        38400 )    ; Minimum TTL
+        86400 )    ; Minimum TTL
 
 	        IN	NS	server.tei.pt.
-        server	IN	A	192.168.30.10
-        @	IN	A	192.168.30.5
-        www	IN	A	192.168.30.5
-        www1	IN	A	192.168.30.10
+	        IN	A	192.168.1.100
+        www	IN	A	192.168.1.100
     \end{verbatim}
 \end{minipage}
 
 \begin{minipage}{\textwidth}
 	\begin{verbatim}
         nano /var/named/the.com.hosts
-        $TTL 38400
+        $TTL 86400
         @   IN  SOA server.tei.pt. admin.tei.pt. (
-        1165190726 ; Serial
-        10800      ; Refresh
-        3600       ; Retry
+        2024051701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
         604800     ; Expire
-        38400 )    ; Minimum TTL
+        86400 )    ; Minimum TTL
 
 	        IN	NS	server.tei.pt.
-        server	IN	A	192.168.30.10
-        @	IN	A	192.168.30.5
-        www	IN	A	192.168.30.5
-        www1	IN	A	192.168.30.10
+	        IN	A	192.168.1.100
+        www	IN	A	192.168.1.100
+    \end{verbatim}
+\end{minipage}
+
+\begin{minipage}{\textwidth}
+	\begin{verbatim}
+        nano /var/named/tei.pt.hosts
+        $TTL 86400
+        @   IN  SOA server.tei.pt. admin.tei.pt. (
+        2024051701 ; Serial
+        3600       ; Refresh
+        1800       ; Retry
+        604800     ; Expire
+        86400 )    ; Minimum TTL
+
+	        IN	NS	server.tei.pt.
+	        IN	A	192.168.1.100
+        waf	IN	A	192.168.1.100
+        server  IN  A   192.168.1.100
     \end{verbatim}
 \end{minipage}\\
 
+\newpage
 Após serem configurados os ficheiros, é necessário reiniciar o
 serviço DNS com o comando \textbf{systemctl restart named}.\\
 
@@ -357,7 +372,7 @@ Como podemos verificar, o DNS está a funcionar corretamente.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \subsection{Virtual Hosts}\label{vhosts}
-Primeiramente é necessária a criação de três utilizadores \textbf{trinta.org}, \textbf{3emfrente.eu} e \textbf{the.com} com a palavra-passe \textbf{123}.
+Primeiramente é necessária a criação de três utilizadores \textbf{trinta.org}, \textbf{3emfrente.eu} e \textbf{the.com} com a palavra-passe \textbf{1234}.
 É em seguida, é necessário criar o ficheiro \textbf{/etc/httpd/conf/httpd.conf} com o seguinte conteúdo:\\\\
 
 \begin{minipage}{\textwidth}
@@ -491,47 +506,119 @@ os sites já se encontram funcionais.
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{WAF}\label{con}
-Para a configuração do WAF, foram feitas as seguintes alterações no ficheiro \textbf{/etc/httpd/conf.d/modsecurity.conf}:
+Para a configuração do WAF foi seguido o guia que está no site do BunkerWeb (\cite{bunkerweb}), 
+e foram feitas as seguintes alterações no ficheiro \textbf{/etc/yum.repos.d/nginx.repo}:
 \begin{verbatim}
-    SecRuleEngine On
-    SecAuditEngine On
-    SecAuditLog /var/log/httpd/modsec_audit.log
-    IncludeOptional modsecurity.d/*.conf
-    IncludeOptional modsecurity.d/activated_rules/*.conf
+    [nginx-stable]
+    name=nginx stable repo
+    baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+    gpgcheck=1
+    enabled=1
+    gpgkey=https://nginx.org/keys/nginx_signing.key
+    module_hotfixes=true
+
+    [nginx-mainline]
+    name=nginx mainline repo
+    baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+    gpgcheck=1
+    enabled=0
+    gpgkey=https://nginx.org/keys/nginx_signing.key
+    module_hotfixes=true
 \end{verbatim}
 
-Na diretoria \textbf{/etc/modsecurity.d/} foi adicionada a pasta \textbf{activated.rules}.
-Em seguida foi copiado o conteúdo da pasta \textbf{/usr/share/modsecurity-crs/base.rules/*} para a pasta \textbf{activated.rules}.
-
-Finalmente, foram feitas as seguintes alterações no ficheiro \textbf{/etc/httpd/conf/httpd.conf}:
+Em seguida fazemos os seguintes comandos para a instalação dos pacotes já mencionados:
 \begin{verbatim}
-<VirtualHost *:80>
-    ServerName www.trinta.org
-    ProxyPreserveHost On
-    ProxyPass / http://192.168.30.10:80/
-    ProxyPassReverse / http://192.168.30.10:80/
-</VirtualHost>
-
-<VirtualHost *:80>
-    ServerName www.3emfrente.eu
-    ProxyPreserveHost On
-    ProxyPass / http://192.168.30.10:80/
-    ProxyPassReverse / http://192.168.30.10:80/
-</VirtualHost>
-
-<VirtualHost *:80>
-    ServerName www.the.com
-    ProxyPreserveHost On
-    ProxyPass / http://192.168.30.10:80/
-    ProxyPassReverse / http://192.168.30.10:80/
-</VirtualHost>
+    yum install nginx-1.26.3 -y
+    yum install epel-release -y
+    curl -s https://repo.bunkerweb.io/install/script.rpm.sh | sudo bash
+    yum check-update
+    yum install bunkerweb-1.6.1 -y
 \end{verbatim}
 
+Para evitar que o Nginx e BunkerWeb atualizem automaticamente, 
+foram feitos os comando \textbf{yum versionlock add nginx} e \textbf{yum versionlock add bunkerweb}.
+
+\newpage
+Agora é possivel configurar a WAF através do browser, acedendo ao endereço \textbf{https://192.168.1.100/setup}.
+Iremos dar ao utilizador \textbf{root} a palavra-passe \textbf{Tei1234.} e para aceder à WAF a qualquer outra 
+altura é apenas necessário aceder ao endereço \textbf{https://192.168.1.100/login}. \\
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Login.png}
+	\caption{Ecrã de login da WAF}
+	\label{fig:nfswarning}
+\end{figure}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+Para a criação de regras, iremos à aba \textbf{Services} e clicamos em \textbf{New Service}.
+Iremos dar o nome correto ao serviço na secção 1, no nosso caso iremos ter três serviços:
+\begin{itemize}
+    \item \textbf{www1.trinta.org}
+    \item \textbf{www1.3emfrente.eu}
+    \item \textbf{www1.the.com}
+\end{itemize}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF1.png}
+	\caption{Atribuição de Nome ao Serviço}
+	\label{fig:nfswarning}
+\end{figure}
+
+Na secção 2, iremos escolher o servidor host, cujo qual vai ser o endereço de cada um dos sites:
+\begin{itemize}
+    \item \textbf{http://www1.trinta.org}
+    \item \textbf{http://www1.3emfrente.eu}
+    \item \textbf{http://www1.the.com}
+\end{itemize}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\caption{Atribuição de Servidor Host}
+	\label{fig:nfswarning}
+\end{figure}
+
+Na secção 6 iremos adicionar IPs à nossa Blacklist, no nosso caso iremos adicionar o IP \textbf{...adicionar ip...}
+que é proveniente da maquina Kali Linux.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Login.png}
+	\caption{Bloqueio de IPs}
+	\label{fig:nfswarning}
+\end{figure}
+
+\newpage
+Na secção 8 iremos ativar o Aimbot através de Recaptcha e na secção 10 iremos adicionar Portugal à lista de paises bloqueados. \\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF4.png}
+	\caption{Aplicação do Recaptcha}
+	\label{fig:nfswarning}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF5.png}
+	\caption{Bloqueio de Países}
+	\label{fig:nfswarning}
+\end{figure}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+\section{Testes com o Kali Linux}\label{testes}
+Para testar a WAF, foi utilizado o Kali Linux (\cite{kalilinux}) com o uso da ferramenta \textbf{Nikto}.
+
+Estes foram os resultados obtidos:
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
 \section{Conclusão}\label{con}
 Todos os serviços foram implementados com sucesso, dado que a sua maioria foi semelhante ao Laboratório 2 da Unidade Curricular de Administração de Sistemas.
+Apenas não foram utilizados os IP pedidos dado que o importante era a configuração dos serviços e não o IP em si.
 Este projeto permitiu adquirir conhecimentos sobre este Tópico e as diferentes possibilidades de manter os serviços seguros.
 Além disso, a configuração de WAF é essencial para garantir a segurança das aplicações web, protegendo-as contra ataques e vulnerabilidades.
 %---------------------------------------------------------------------------------------------------------------------------

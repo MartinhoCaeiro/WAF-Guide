@@ -42,7 +42,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador AlmaLinux}
       \field{title}{Repositorio AlmaLinux}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -52,6 +52,41 @@
       \endverb
       \verb{url}
       \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
+      \endverb
+    \endentry
+    \entry{bunkerweb}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9b5ac667c431758086674abcbc224d89}{%
+           family={BunkerWeb},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{fullhash}{9b5ac667c431758086674abcbc224d89}
+      \strng{fullhashraw}{9b5ac667c431758086674abcbc224d89}
+      \strng{bibnamehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authorbibnamehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authornamehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authorfullhash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authorfullhashraw}{9b5ac667c431758086674abcbc224d89}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Guia BunkerWeb}
+      \field{title}{Quickstart guide - BunkerWeb documentation}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.bunkerweb.io/latest/quickstart-guide/#basic-setup
+      \endverb
+      \verb{url}
+      \verb https://docs.bunkerweb.io/latest/quickstart-guide/#basic-setup
       \endverb
     \endentry
     \entry{pagtei}{online}{}{}
@@ -77,7 +112,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Página TEI}
       \field{title}{Disciplina: Tópicos de Engenharia Informatica | IPBeja}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -87,6 +122,41 @@
       \endverb
       \verb{url}
       \verb https://cms.ipbeja.pt/course/view.php?id=2775
+      \endverb
+    \endentry
+    \entry{kalilinux}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7ef8381c5782db03705ba43b340a3c3f}{%
+           family={Kali\bibnamedelima Linux},
+           familyi={K\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{fullhash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{fullhashraw}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{bibnamehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authorbibnamehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authornamehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authorfullhash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authorfullhashraw}{7ef8381c5782db03705ba43b340a3c3f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Instalador Kali Linux}
+      \field{title}{Get Kali | Kali Linux}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.kali.org/get-kali/
+      \endverb
+      \verb{url}
+      \verb https://www.kali.org/get-kali/
       \endverb
     \endentry
     \entry{putty}{online}{}{}
@@ -112,7 +182,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador Putty}
       \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -149,7 +219,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador AlmaLinux}
       \field{title}{Repositorio AlmaLinux}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -159,6 +229,41 @@
       \endverb
       \verb{url}
       \verb https://repo.almalinux.org/almalinux/8.10/isos/x86_64/AlmaLinux-8.10-x86_64-minimal.iso
+      \endverb
+    \endentry
+    \entry{bunkerweb}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9b5ac667c431758086674abcbc224d89}{%
+           family={BunkerWeb},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{fullhash}{9b5ac667c431758086674abcbc224d89}
+      \strng{fullhashraw}{9b5ac667c431758086674abcbc224d89}
+      \strng{bibnamehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authorbibnamehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authornamehash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authorfullhash}{9b5ac667c431758086674abcbc224d89}
+      \strng{authorfullhashraw}{9b5ac667c431758086674abcbc224d89}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Guia BunkerWeb}
+      \field{title}{Quickstart guide - BunkerWeb documentation}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://docs.bunkerweb.io/latest/quickstart-guide/#basic-setup
+      \endverb
+      \verb{url}
+      \verb https://docs.bunkerweb.io/latest/quickstart-guide/#basic-setup
       \endverb
     \endentry
     \entry{pagtei}{online}{}{}
@@ -184,7 +289,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Página TEI}
       \field{title}{Disciplina: Tópicos de Engenharia Informatica | IPBeja}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
@@ -194,6 +299,41 @@
       \endverb
       \verb{url}
       \verb https://cms.ipbeja.pt/course/view.php?id=2775
+      \endverb
+    \endentry
+    \entry{kalilinux}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=7ef8381c5782db03705ba43b340a3c3f}{%
+           family={Kali\bibnamedelima Linux},
+           familyi={K\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{fullhash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{fullhashraw}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{bibnamehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authorbibnamehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authornamehash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authorfullhash}{7ef8381c5782db03705ba43b340a3c3f}
+      \strng{authorfullhashraw}{7ef8381c5782db03705ba43b340a3c3f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Instalador Kali Linux}
+      \field{title}{Get Kali | Kali Linux}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.kali.org/get-kali/
+      \endverb
+      \verb{url}
+      \verb https://www.kali.org/get-kali/
       \endverb
     \endentry
     \entry{putty}{online}{}{}
@@ -219,7 +359,7 @@
       \field{labeltitlesource}{title}
       \field{note}{Instalador Putty}
       \field{title}{Download PuTTY: latest release (0.83)}
-      \field{urlday}{19}
+      \field{urlday}{29}
       \field{urlmonth}{5}
       \field{urlyear}{2025}
       \field{year}{2025}
