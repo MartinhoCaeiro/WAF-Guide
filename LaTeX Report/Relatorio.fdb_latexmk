@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Relatorio"] 1748532245.22652 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1748541917.77304 0
+["biber Relatorio"] 1748532245.22652 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1748775621.36821 0
   "Recursos/referencias.bib" 1748532227 1274 383e3d6eba14f58dba748a5989926e3c ""
-  "Relatorio.bcf" 1748541917 134043 e444bc91d5cb5b77472a955838e29629 "pdflatex"
+  "Relatorio.bcf" 1748775620 134043 e444bc91d5cb5b77472a955838e29629 "pdflatex"
   (generated)
   "Relatorio.bbl"
   "Relatorio.blg"
   (rewritten before read)
-["pdflatex"] 1748541913.74598 "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1748541917.77387 0
+["pdflatex"] 1748775616.61977 "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1748775621.36991 0
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746122313 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1728.pk" 1731243685 71788 1e02f162203728df16030782559135b3 ""
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1730970230 25420 7f407e2bc8380997d24e59de81372356 ""
@@ -220,14 +220,14 @@
   "Recursos/WAF2.png" 1748531505 12360 8a3ae8fd18ce22950cf9309cf2cc86e1 ""
   "Recursos/WAF4.png" 1748531558 22354 3ded2aff2dc9136335ddb5bf8f8afea5 ""
   "Recursos/WAF5.png" 1748531636 20954 8c6fe3664482a242db1f304be13b4f48 ""
-  "Relatorio.aux" 1748541917 5871 adf2c6ea8f0ffe1775e03ed0ad866409 "pdflatex"
+  "Relatorio.aux" 1748775620 5871 adf2c6ea8f0ffe1775e03ed0ad866409 "pdflatex"
   "Relatorio.bbl" 1748532251 15285 273444fa837f838f30a96226b7b06b5d "biber Relatorio"
-  "Relatorio.lof" 1748541917 986 32c129c3c79f8d0ab7cd240c76ce82f3 "pdflatex"
-  "Relatorio.out" 1748541917 1653 0af271fedc3be20dc0d6221008e27433 "pdflatex"
-  "Relatorio.run.xml" 1748541917 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
-  "Relatorio.tex" 1748541912 21692 e7eb9f9aa4b4a493c05664ecedce421f ""
-  "Relatorio.toc" 1748541917 1049 4bf961d43ca88c35171583f496653aff "pdflatex"
-  "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" 1748541912 21692 e7eb9f9aa4b4a493c05664ecedce421f ""
+  "Relatorio.lof" 1748775620 986 32c129c3c79f8d0ab7cd240c76ce82f3 "pdflatex"
+  "Relatorio.out" 1748775620 1653 0af271fedc3be20dc0d6221008e27433 "pdflatex"
+  "Relatorio.run.xml" 1748775620 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
+  "Relatorio.tex" 1748775604 21692 e7eb9f9aa4b4a493c05664ecedce421f ""
+  "Relatorio.toc" 1748775620 1049 4bf961d43ca88c35171583f496653aff "pdflatex"
+  "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" 1748775604 21692 e7eb9f9aa4b4a493c05664ecedce421f ""
   (generated)
   "Relatorio.aux"
   "Relatorio.bcf"
