@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  1 JUN 2025 12:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  2 JUN 2025 13:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -905,6 +905,18 @@ LaTeX Warning: Label `fig:nfswarning' multiply defined.
 LaTeX Warning: Label `fig:nfswarning' multiply defined.
 
 
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
 LaTeX Warning: Label `con' multiply defined.
 
 )
@@ -1097,7 +1109,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
 
-<Recursos/UserMach.png, id=142, 405.31425pt x 320.397pt>
+<Recursos/UserMach.png, id=150, 405.31425pt x 320.397pt>
 File: Recursos/UserMach.png Graphic file (type png)
 <use Recursos/UserMach.png>
 Package pdftex.def Info: Recursos/UserMach.png  used on input line 216.
@@ -1170,7 +1182,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
-<Recursos/DNS.png, id=170, 422.17725pt x 322.806pt>
+<Recursos/DNS.png, id=178, 422.17725pt x 322.806pt>
 File: Recursos/DNS.png Graphic file (type png)
 <use Recursos/DNS.png>
 Package pdftex.def Info: Recursos/DNS.png  used on input line 365.
@@ -1198,113 +1210,118 @@ Underfull \hbox (badness 10000) in paragraph at lines 375--377
  []
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 378--395
+Overfull \hbox (15.0pt too wide) in paragraph at lines 378--394
 []$[]$ 
  []
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 396--413
+Overfull \hbox (15.0pt too wide) in paragraph at lines 395--411
 []$[]$ 
  []
 
 
 
 [9]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 414--431
-[]$[]$ 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 432--449
+Overfull \hbox (15.0pt too wide) in paragraph at lines 412--428
 []$[]$ 
  []
 
 
 
 [10]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 450--467
-[]$[]$ 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 468--485
-[]$[]$ 
- []
-
-
-
-[11]
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
-
- []
-
-<Recursos/VH.png, id=192, 206.57175pt x 49.98676pt>
+<Recursos/VH.png, id=192, 256.5585pt x 92.14426pt>
 File: Recursos/VH.png Graphic file (type png)
 <use Recursos/VH.png>
-Package pdftex.def Info: Recursos/VH.png  used on input line 498.
-(pdftex.def)             Requested size: 334.60422pt x 80.9712pt.
+Package pdftex.def Info: Recursos/VH.png  used on input line 440.
+(pdftex.def)             Requested size: 334.60422pt x 120.1868pt.
 
 
-[13 <./Recursos/VH.png>]
+[11 <./Recursos/VH.png>]
 
-[14]
-<Recursos/Login.png, id=205, 466.74374pt x 439.04025pt>
+[12]
+<Recursos/Login.png, id=204, 466.74374pt x 439.04025pt>
 File: Recursos/Login.png Graphic file (type png)
 <use Recursos/Login.png>
-Package pdftex.def Info: Recursos/Login.png  used on input line 547.
+Package pdftex.def Info: Recursos/Login.png  used on input line 489.
 (pdftex.def)             Requested size: 334.60422pt x 314.75551pt.
 
-Overfull \hbox (69.3201pt too wide) in paragraph at lines 542--551
+Overfull \hbox (69.3201pt too wide) in paragraph at lines 484--493
 []\T1/cmr/m/n/10 Agora é pos-si-vel con-fi-gu-rar a WAF atra-vés do brow-ser, ace-dendo ao en-de-reço \T1/cmr/bx/n/10 https://192.168.1.100/setup\T1/cmr/m/n/10 .
  []
 
 
 
-[15 <./Recursos/Login.png>]
+[13 <./Recursos/Login.png>]
 <Recursos/WAF1.png, id=211, 300.52275pt x 129.48375pt>
 File: Recursos/WAF1.png Graphic file (type png)
 <use Recursos/WAF1.png>
-Package pdftex.def Info: Recursos/WAF1.png  used on input line 564.
+Package pdftex.def Info: Recursos/WAF1.png  used on input line 506.
 (pdftex.def)             Requested size: 334.60422pt x 144.17714pt.
-<Recursos/WAF2.png, id=212, 279.444pt x 80.7015pt>
+<Recursos/WAF2.png, id=212, 278.84175pt x 76.48575pt>
 File: Recursos/WAF2.png Graphic file (type png)
 <use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 578.
-(pdftex.def)             Requested size: 334.60422pt x 96.63321pt.
-File: Recursos/Login.png Graphic file (type png)
-<use Recursos/Login.png>
-Package pdftex.def Info: Recursos/Login.png  used on input line 588.
-(pdftex.def)             Requested size: 334.60422pt x 314.75551pt.
+Package pdftex.def Info: Recursos/WAF2.png  used on input line 514.
+(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
 
 
-[16 <./Recursos/WAF1.png> <./Recursos/WAF2.png>]
+[14 <./Recursos/WAF1.png> <./Recursos/WAF2.png>]
+File: Recursos/WAF2.png Graphic file (type png)
+<use Recursos/WAF2.png>
+Package pdftex.def Info: Recursos/WAF2.png  used on input line 524.
+(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
 
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 594--595
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
-<Recursos/WAF4.png, id=223, 286.671pt x 121.6545pt>
+<Recursos/WAF4.png, id=219, 286.671pt x 121.6545pt>
 File: Recursos/WAF4.png Graphic file (type png)
 <use Recursos/WAF4.png>
-Package pdftex.def Info: Recursos/WAF4.png  used on input line 598.
+Package pdftex.def Info: Recursos/WAF4.png  used on input line 533.
 (pdftex.def)             Requested size: 334.60422pt x 142.00104pt.
-<Recursos/WAF5.png, id=224, 278.84175pt x 121.6545pt>
+<Recursos/WAF5.png, id=220, 278.84175pt x 121.6545pt>
 File: Recursos/WAF5.png Graphic file (type png)
 <use Recursos/WAF5.png>
-Package pdftex.def Info: Recursos/WAF5.png  used on input line 605.
+Package pdftex.def Info: Recursos/WAF5.png  used on input line 540.
 (pdftex.def)             Requested size: 334.60422pt x 145.99765pt.
 
 
-[18 <./Recursos/WAF4.png> <./Recursos/WAF5.png>]
+[15 <./Recursos/WAF4.png> <./Recursos/WAF5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 548--550
 
-[19]
+ []
 
-[20]
 
-[21] (Relatorio.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 548--550
+
+ []
+
+File: Recursos/WAF2.png Graphic file (type png)
+<use Recursos/WAF2.png>
+Package pdftex.def Info: Recursos/WAF2.png  used on input line 554.
+(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+File: Recursos/WAF2.png Graphic file (type png)
+<use Recursos/WAF2.png>
+Package pdftex.def Info: Recursos/WAF2.png  used on input line 562.
+(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+
+
+[16]
+File: Recursos/WAF2.png Graphic file (type png)
+<use Recursos/WAF2.png>
+Package pdftex.def Info: Recursos/WAF2.png  used on input line 571.
+(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+File: Recursos/WAF2.png Graphic file (type png)
+<use Recursos/WAF2.png>
+Package pdftex.def Info: Recursos/WAF2.png  used on input line 579.
+(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+
+
+[17]
+
+[18]
+
+[19] (Relatorio.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-10-09>
@@ -1314,23 +1331,23 @@ L3 programming layer <2024-10-09>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Relatorio.out' has not changed.
-(rerunfilecheck)             Checksum: 0AF271FEDC3BE20DC0D6221008E27433;1653.
+(rerunfilecheck)             Checksum: 19729FD62C76E420B595AE8778F5D7DA;1667.
 Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 \openout1 = `Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36868 strings out of 473897
- 740671 string characters out of 5726462
- 1602455 words of memory out of 5000000
+ 36870 strings out of 473897
+ 740735 string characters out of 5726462
+ 1602454 words of memory out of 5000000
  59174 multiletter control sequences out of 15000+600000
  568747 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,7n,107p,754b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (27 pages, 409221 bytes).
+Output written on Relatorio.pdf (25 pages, 410149 bytes).
 PDF statistics:
- 728 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
+ 722 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
  175 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -377,121 +377,63 @@ Primeiramente é necessária a criação de três utilizadores \textbf{trinta.or
 
 \begin{minipage}{\textwidth}
 	\begin{verbatim}
-        NameVirtualHost 192.168.30.10:80
-        <VirtualHost 192.168.30.10:80>
-        DocumentRoot "/home/trinta.org/"
-        ServerName www.trinta.org
-        ServerAlias trinta.org
-        <Directory "/home/trinta.org">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-        </Directory>
+        <VirtualHost 192.168.1.101:80>
+            DocumentRoot "/home/trinta.org"
+            ServerName www1.trinta.org
+            ServerAlias trinta.org
+            <Directory "/home/trinta.org">
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+                Require method GET POST OPTIONS
+            </Directory>
         </VirtualHost>
     \end{verbatim}
 \end{minipage}
 
 \begin{minipage}{\textwidth}
 	\begin{verbatim}
-        NameVirtualHost 192.168.30.10:443
-        <VirtualHost 192.168.30.10:443>
-        DocumentRoot "/home/trinta.org/"
-        ServerName www.trinta.org
-        ServerAlias trinta.org
-        <Directory "/home/trinta.org">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-        </Directory>
+        <VirtualHost 192.168.1.101:80>
+            DocumentRoot "/home/3emfrente.eu"
+            ServerName www1.3emfrente.eu
+            ServerAlias 3emfrente.eu
+            <Directory "/home/3emfrente.eu">
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+                Require method GET POST OPTIONS
+            </Directory>
         </VirtualHost>
     \end{verbatim}
 \end{minipage}
 
 \begin{minipage}{\textwidth}
 	\begin{verbatim}
-        NameVirtualHost 192.168.30.10:80
-        <VirtualHost 192.168.30.10:80>
-        DocumentRoot "/home/3emfrente.eu/"
-        ServerName www.3emfrente.eu
-        ServerAlias 3emfrente.eu
-        <Directory "/home/3emfrente.eu">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-        </Directory>
-        </VirtualHost>
-    \end{verbatim}
-\end{minipage}
-
-\begin{minipage}{\textwidth}
-	\begin{verbatim}
-        NameVirtualHost 192.168.30.10:443
-        <VirtualHost 192.168.30.10:443>
-        DocumentRoot "/home/3emfrente.eu/"
-        ServerName www.3emfrente.eu
-        ServerAlias 3emfrente.eu
-        <Directory "/home/3emfrente.eu">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-        </Directory>
-        </VirtualHost>
-    \end{verbatim}
-\end{minipage}
-
-\begin{minipage}{\textwidth}
-	\begin{verbatim}
-        NameVirtualHost 192.168.30.10:80
-        <VirtualHost 192.168.30.10:80>
-        DocumentRoot "/home/the.com/"
-        ServerName www.the.com
-        ServerAlias the.com
-        <Directory "/home/the.com">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-        </Directory>
-        </VirtualHost>
-    \end{verbatim}
-\end{minipage}
-
-\begin{minipage}{\textwidth}
-	\begin{verbatim}
-        NameVirtualHost 192.168.30.10:443
-        <VirtualHost 192.168.30.10:443>
-        DocumentRoot "/home/the.com/"
-        ServerName www.the.com
-        ServerAlias the.com
-        <Directory "/home/the.com">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-        </Directory>
+        <VirtualHost 192.168.1.101:80>
+            DocumentRoot "/home/the.com"
+            ServerName www1.the.com
+            ServerAlias the.com
+            <Directory "/home/the.com">
+                Options Indexes FollowSymLinks
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+                Require method GET POST OPTIONS
+            </Directory>
         </VirtualHost>
     \end{verbatim}
 \end{minipage}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
-Finalmente, é necessário criar as diretorias para cada um dos sites, com os seguintes comandos:
+Finalmente, é necessário criar o html para cada um dos sites, com os seguintes comandos:
 \begin{verbatim}
-    mkdir /home/trinta.org/public_html
-    mkdir /home/3emfrente.eu/public_html
-    mkdir /home/the.com/public_html
+    nano /home/trinta.org/index.html
+    nano /home/3emfrente.eu/index.html
+    nano /home/the.com/index.html
 \end{verbatim}
-Após a criação das diretorias, é necessário criar um ficheiro \textbf{index.html} em cada um dos diretórios com o seguinte conteúdo:\\
 
 \begin{figure}[h!]
 	\centering
@@ -500,12 +442,12 @@ Após a criação das diretorias, é necessário criar um ficheiro \textbf{index
 	\label{fig:nfswarning}
 \end{figure}
 
-Como podemos verificar, após realizar os comandos \textbf{systemctl restart named} e \textbf{systemctl restart httpd}
-os sites já se encontram funcionais.
+Como podemos verificar, após realizar os comandos \textbf{systemctl restart named}, \textbf{systemctl restart httpd}
+e configurar a WAF, os sites já se encontram funcionais.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
-\section{WAF}\label{con}
+\subsection{WAF}\label{con}
 Para a configuração do WAF foi seguido o guia que está no site do BunkerWeb (\cite{bunkerweb}), 
 e foram feitas as seguintes alterações no ficheiro \textbf{/etc/yum.repos.d/nginx.repo}:
 \begin{verbatim}
@@ -566,13 +508,7 @@ Iremos dar o nome correto ao serviço na secção 1, no nosso caso iremos ter tr
 	\label{fig:nfswarning}
 \end{figure}
 
-Na secção 2, iremos escolher o servidor host, cujo qual vai ser o endereço de cada um dos sites:
-\begin{itemize}
-    \item \textbf{http://www1.trinta.org}
-    \item \textbf{http://www1.3emfrente.eu}
-    \item \textbf{http://www1.the.com}
-\end{itemize}
-
+Na secção 2, iremos escolher o servidor host, cujo qual vai ser o endereço IP do servidor:
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
@@ -580,17 +516,16 @@ Na secção 2, iremos escolher o servidor host, cujo qual vai ser o endereço de
 	\label{fig:nfswarning}
 \end{figure}
 
-Na secção 6 iremos adicionar IPs à nossa Blacklist, no nosso caso iremos adicionar o IP \textbf{...adicionar ip...}
-que é proveniente da maquina Kali Linux.
+\newpage
+Na secção 6 iremos adicionar o IP da maquina Kali LinuxIPs à nossa Blacklist.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/Login.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
 	\caption{Bloqueio de IPs}
 	\label{fig:nfswarning}
 \end{figure}
 
-\newpage
 Na secção 8 iremos ativar o Aimbot através de Recaptcha e na secção 10 iremos adicionar Portugal à lista de paises bloqueados. \\
 
 \begin{figure}[h!]
@@ -611,8 +546,40 @@ Na secção 8 iremos ativar o Aimbot através de Recaptcha e na secção 10 irem
 \newpage
 \section{Testes com o Kali Linux}\label{testes}
 Para testar a WAF, foi utilizado o Kali Linux (\cite{kalilinux}) com o uso da ferramenta \textbf{Nikto}.
+Estes foram os resultados obtidos: \\\\
 
-Estes foram os resultados obtidos:
+WAF sem proteções:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\caption{WAF sem Proteções}
+	\label{fig:nfswarning}
+\end{figure}
+
+IP Blacklist:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\caption{IP Blacklist}
+	\label{fig:nfswarning}
+\end{figure}
+
+\newpage
+Antibot Recaptcha:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\caption{Antibot Recaptcha}
+	\label{fig:nfswarning}
+\end{figure}
+
+Paises Bloqueados:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\caption{Paises Bloqueados}
+	\label{fig:nfswarning}
+\end{figure}
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage

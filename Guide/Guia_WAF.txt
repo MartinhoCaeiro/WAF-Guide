@@ -139,43 +139,11 @@ Adicionar no final:
     </Directory>
 </VirtualHost>
 
-<VirtualHost (ip do servidor):443>
-    DocumentRoot "/home/trinta.org"
-    ServerName www1.trinta.org
-    ServerAlias trinta.org
-    SSLEngine on
-    SSLCertificateFile /etc/pki/tls/certs/www1.trinta.org.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/www1.trinta.org.key
-    <Directory "/home/trinta.org">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-    </Directory>
-</VirtualHost>
-
 # --- www1.3emfrente.eu ---
 <VirtualHost (ip do servidor):80>
     DocumentRoot "/home/3emfrente.eu"
     ServerName www1.3emfrente.eu
     ServerAlias 3emfrente.eu
-    <Directory "/home/3emfrente.eu">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-    </Directory>
-</VirtualHost>
-
-<VirtualHost (ip do servidor):443>
-    DocumentRoot "/home/3emfrente.eu"
-    ServerName www1.3emfrente.eu
-    ServerAlias 3emfrente.eu
-    SSLEngine on
-    SSLCertificateFile /etc/pki/tls/certs/www1.3emfrente.eu.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/www1.3emfrente.eu.key
     <Directory "/home/3emfrente.eu">
         Options Indexes FollowSymLinks
         AllowOverride All
@@ -191,22 +159,6 @@ Adicionar no final:
     ServerName www1.the.com
     ServerAlias the.com
     <Directory "/home/the.com">
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-        Require method GET POST OPTIONS
-    </Directory>
-</VirtualHost>
-
-<VirtualHost (ip do servidor):443>
-    DocumentRoot "/home/the.com"
-    ServerName www1.the.com
-    ServerAlias the.com
-    SSLEngine on
-    SSLCertificateFile /etc/pki/tls/certs/www1.the.com.crt
-    SSLCertificateKeyFile /etc/pki/tls/private/www1.the.com.key
-    <Directory "/home/www1.the.com">
         Options Indexes FollowSymLinks
         AllowOverride All
         Order allow,deny
