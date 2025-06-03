@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Relatorio"] 1748866461.05098 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1748866756.9253 0
+["biber Relatorio"] 1748866461.05098 "Relatorio.bcf" "Relatorio.bbl" "Relatorio" 1748956348.25973 0
   "Recursos/referencias.bib" 1748532227 1274 383e3d6eba14f58dba748a5989926e3c ""
-  "Relatorio.bcf" 1748866756 134043 e444bc91d5cb5b77472a955838e29629 "pdflatex"
+  "Relatorio.bcf" 1748956347 134043 e444bc91d5cb5b77472a955838e29629 "pdflatex"
   (generated)
   "Relatorio.bbl"
   "Relatorio.blg"
   (rewritten before read)
-["pdflatex"] 1748866754.70506 "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1748866756.92628 0
+["pdflatex"] 1748956342.26566 "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" "Relatorio.pdf" "Relatorio" 1748956348.26169 0
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1746122313 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1728.pk" 1731243685 71788 1e02f162203728df16030782559135b3 ""
   "C:/Users/Marti/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1730970230 25420 7f407e2bc8380997d24e59de81372356 ""
@@ -211,6 +211,12 @@
   "C:/Users/Marti/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/Marti/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
   "Recursos/DNS.png" 1748529674 44374 2419d8c85cc58f3adf6e468206a5496b ""
+  "Recursos/Kali1.png" 1748948707 8056 f6715c53d0e65725d0587a2584bd2797 ""
+  "Recursos/Kali2.png" 1748948931 98958 2bcd5dbf7c2107f6737a1f8f283bdf4f ""
+  "Recursos/Kali3.png" 1748949637 34457 7506ef29e5ecacee57bf6db3332bbb25 ""
+  "Recursos/Kali4.png" 1748953283 24196 dbc1a40cf7182678fdec5239d1e16726 ""
+  "Recursos/Kali5.png" 1748954029 17254 129aebc3885508f9f941df482d88eebe ""
+  "Recursos/Kali6.png" 1748954931 18567 c07c272d8ee240009fd2f7397f489b69 ""
   "Recursos/Login.png" 1748530603 32122 f8e85c02752d066dd3d2113c94551019 ""
   "Recursos/Logos/IPBejaESTIG.jpg" 1746117960 24524 8256cc09fbb9140893a7ec292a0eb389 ""
   "Recursos/Logos/LOGO_IPB.png" 1746117960 70931 8e4fd2cd3676e6d3adc0f137d7334c9f ""
@@ -218,16 +224,17 @@
   "Recursos/VH.png" 1748865966 10345 569fbe0a95ba0ced3443f432881ee397 ""
   "Recursos/WAF1.png" 1748531476 24115 603cdb2b948d56d6cfada9c1b8211547 ""
   "Recursos/WAF2.png" 1748865692 12198 db9778b322e19011609c33e049f3378d ""
-  "Recursos/WAF4.png" 1748531558 22354 3ded2aff2dc9136335ddb5bf8f8afea5 ""
+  "Recursos/WAF3.png" 1748949143 10545 d5e0f6a7e4a161aa42224c95cd93b689 ""
+  "Recursos/WAF4.png" 1748950007 9204 414190e7bfdeb4c6d5446c18b53326a4 ""
   "Recursos/WAF5.png" 1748531636 20954 8c6fe3664482a242db1f304be13b4f48 ""
-  "Relatorio.aux" 1748866756 6742 8bc5bd8d07e926d2825b2357223492e2 "pdflatex"
+  "Relatorio.aux" 1748956347 7393 24982c6c8239b2c5fc11863e28ef3595 "pdflatex"
   "Relatorio.bbl" 1748866463 15285 273444fa837f838f30a96226b7b06b5d "biber Relatorio"
-  "Relatorio.lof" 1748866756 1375 8da093d5d3450e4f4d980d80b2d367d9 "pdflatex"
-  "Relatorio.out" 1748866756 1667 19729fd62c76e420b595ae8778f5d7da "pdflatex"
-  "Relatorio.run.xml" 1748866756 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
-  "Relatorio.tex" 1748866753 20533 3d5fc24fc3cdec605e87615de351fa2c ""
-  "Relatorio.toc" 1748866756 1059 8e0284ffbf57adb8b1e572c1ecedbf37 "pdflatex"
-  "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" 1748866753 20533 3d5fc24fc3cdec605e87615de351fa2c ""
+  "Relatorio.lof" 1748956347 1672 d78a87e99a706526cdc86364ab1c6dcc "pdflatex"
+  "Relatorio.out" 1748956347 1667 19729fd62c76e420b595ae8778f5d7da "pdflatex"
+  "Relatorio.run.xml" 1748956347 2410 717c0927f41f216f3cf4bba59bbfc439 "pdflatex"
+  "Relatorio.tex" 1748956340 21538 46e140fe44eb9ed0cb37f67380a2334d ""
+  "Relatorio.toc" 1748956347 1059 a9add754f02a4f4ce3097f124982b641 "pdflatex"
+  "c:/Users/Marti/Documents/Topicos-Projeto/LaTeX Report/Relatorio.tex" 1748956340 21538 46e140fe44eb9ed0cb37f67380a2334d ""
   (generated)
   "Relatorio.aux"
   "Relatorio.bcf"

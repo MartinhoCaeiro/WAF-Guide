@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  2 JUN 2025 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.7)  3 JUN 2025 14:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -917,6 +917,15 @@ LaTeX Warning: Label `fig:nfswarning' multiply defined.
 LaTeX Warning: Label `fig:nfswarning' multiply defined.
 
 
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
+LaTeX Warning: Label `fig:nfswarning' multiply defined.
+
+
 LaTeX Warning: Label `con' multiply defined.
 
 )
@@ -1109,7 +1118,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 210--213
 
  []
 
-<Recursos/UserMach.png, id=150, 405.31425pt x 320.397pt>
+<Recursos/UserMach.png, id=156, 405.31425pt x 320.397pt>
 File: Recursos/UserMach.png Graphic file (type png)
 <use Recursos/UserMach.png>
 Package pdftex.def Info: Recursos/UserMach.png  used on input line 216.
@@ -1182,7 +1191,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
-<Recursos/DNS.png, id=178, 422.17725pt x 322.806pt>
+<Recursos/DNS.png, id=184, 422.17725pt x 322.806pt>
 File: Recursos/DNS.png Graphic file (type png)
 <use Recursos/DNS.png>
 Package pdftex.def Info: Recursos/DNS.png  used on input line 365.
@@ -1229,7 +1238,7 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 412--428
 
 
 [10]
-<Recursos/VH.png, id=192, 256.5585pt x 92.14426pt>
+<Recursos/VH.png, id=198, 256.5585pt x 92.14426pt>
 File: Recursos/VH.png Graphic file (type png)
 <use Recursos/VH.png>
 Package pdftex.def Info: Recursos/VH.png  used on input line 440.
@@ -1239,7 +1248,7 @@ Package pdftex.def Info: Recursos/VH.png  used on input line 440.
 [11 <./Recursos/VH.png>]
 
 [12]
-<Recursos/Login.png, id=204, 466.74374pt x 439.04025pt>
+<Recursos/Login.png, id=210, 466.74374pt x 439.04025pt>
 File: Recursos/Login.png Graphic file (type png)
 <use Recursos/Login.png>
 Package pdftex.def Info: Recursos/Login.png  used on input line 489.
@@ -1252,12 +1261,12 @@ Overfull \hbox (69.3201pt too wide) in paragraph at lines 484--493
 
 
 [13 <./Recursos/Login.png>]
-<Recursos/WAF1.png, id=211, 300.52275pt x 129.48375pt>
+<Recursos/WAF1.png, id=217, 300.52275pt x 129.48375pt>
 File: Recursos/WAF1.png Graphic file (type png)
 <use Recursos/WAF1.png>
 Package pdftex.def Info: Recursos/WAF1.png  used on input line 506.
 (pdftex.def)             Requested size: 334.60422pt x 144.17714pt.
-<Recursos/WAF2.png, id=212, 278.84175pt x 76.48575pt>
+<Recursos/WAF2.png, id=218, 278.84175pt x 76.48575pt>
 File: Recursos/WAF2.png Graphic file (type png)
 <use Recursos/WAF2.png>
 Package pdftex.def Info: Recursos/WAF2.png  used on input line 514.
@@ -1265,63 +1274,80 @@ Package pdftex.def Info: Recursos/WAF2.png  used on input line 514.
 
 
 [14 <./Recursos/WAF1.png> <./Recursos/WAF2.png>]
-File: Recursos/WAF2.png Graphic file (type png)
-<use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 524.
-(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+<Recursos/WAF3.png, id=225, 275.8305pt x 81.906pt>
+File: Recursos/WAF3.png Graphic file (type png)
+<use Recursos/WAF3.png>
+Package pdftex.def Info: Recursos/WAF3.png  used on input line 524.
+(pdftex.def)             Requested size: 334.60422pt x 99.36401pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
-<Recursos/WAF4.png, id=219, 286.671pt x 121.6545pt>
+<Recursos/WAF4.png, id=226, 274.626pt x 79.497pt>
 File: Recursos/WAF4.png Graphic file (type png)
 <use Recursos/WAF4.png>
 Package pdftex.def Info: Recursos/WAF4.png  used on input line 533.
-(pdftex.def)             Requested size: 334.60422pt x 142.00104pt.
-<Recursos/WAF5.png, id=220, 278.84175pt x 121.6545pt>
+(pdftex.def)             Requested size: 334.60422pt x 96.85881pt.
+<Recursos/WAF5.png, id=227, 278.84175pt x 121.6545pt>
 File: Recursos/WAF5.png Graphic file (type png)
 <use Recursos/WAF5.png>
 Package pdftex.def Info: Recursos/WAF5.png  used on input line 540.
 (pdftex.def)             Requested size: 334.60422pt x 145.99765pt.
 
 
-[15 <./Recursos/WAF4.png> <./Recursos/WAF5.png>]
+[15 <./Recursos/WAF3.png> <./Recursos/WAF4.png> <./Recursos/WAF5.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 548--550
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 548--550
-
- []
-
-File: Recursos/WAF2.png Graphic file (type png)
-<use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 554.
-(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
-File: Recursos/WAF2.png Graphic file (type png)
-<use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 562.
-(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+<Recursos/Kali1.png, id=236, 216.20775pt x 59.62276pt>
+File: Recursos/Kali1.png Graphic file (type png)
+<use Recursos/Kali1.png>
+Package pdftex.def Info: Recursos/Kali1.png  used on input line 554.
+(pdftex.def)             Requested size: 334.60422pt x 92.28056pt.
+<Recursos/Kali2.png, id=237, 569.12625pt x 409.53pt>
+File: Recursos/Kali2.png Graphic file (type png)
+<use Recursos/Kali2.png>
+Package pdftex.def Info: Recursos/Kali2.png  used on input line 562.
+(pdftex.def)             Requested size: 334.60422pt x 240.78325pt.
 
 
-[16]
-File: Recursos/WAF2.png Graphic file (type png)
-<use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 571.
-(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
-File: Recursos/WAF2.png Graphic file (type png)
-<use Recursos/WAF2.png>
-Package pdftex.def Info: Recursos/WAF2.png  used on input line 579.
-(pdftex.def)             Requested size: 334.60422pt x 91.79057pt.
+[16 <./Recursos/Kali1.png> <./Recursos/Kali2.png>]
+<Recursos/Kali3.png, id=245, 589.60275pt x 277.035pt>
+File: Recursos/Kali3.png Graphic file (type png)
+<use Recursos/Kali3.png>
+Package pdftex.def Info: Recursos/Kali3.png  used on input line 571.
+(pdftex.def)             Requested size: 334.60422pt x 157.21832pt.
+File: Recursos/Kali2.png Graphic file (type png)
+<use Recursos/Kali2.png>
+Package pdftex.def Info: Recursos/Kali2.png  used on input line 579.
+(pdftex.def)             Requested size: 334.60422pt x 240.78325pt.
 
 
-[17]
+[17 <./Recursos/Kali3.png>]
+<Recursos/Kali4.png, id=251, 760.0395pt x 184.2885pt>
+File: Recursos/Kali4.png Graphic file (type png)
+<use Recursos/Kali4.png>
+Package pdftex.def Info: Recursos/Kali4.png  used on input line 589.
+(pdftex.def)             Requested size: 334.60422pt x 81.13217pt.
+<Recursos/Kali5.png, id=252, 767.86874pt x 175.25475pt>
+File: Recursos/Kali5.png Graphic file (type png)
+<use Recursos/Kali5.png>
+Package pdftex.def Info: Recursos/Kali5.png  used on input line 597.
+(pdftex.def)             Requested size: 334.60422pt x 76.3689pt.
+<Recursos/Kali6.png, id=253, 770.88pt x 184.2885pt>
+File: Recursos/Kali6.png Graphic file (type png)
+<use Recursos/Kali6.png>
+Package pdftex.def Info: Recursos/Kali6.png  used on input line 605.
+(pdftex.def)             Requested size: 334.60422pt x 79.9905pt.
 
-[18]
 
-[19] (Relatorio.aux)
+[18 <./Recursos/Kali4.png> <./Recursos/Kali5.png> <./Recursos/Kali6.png>]
+
+[19]
+
+[20] (Relatorio.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-10-09>
@@ -1337,17 +1363,17 @@ Package logreq Info: Writing requests to 'Relatorio.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36870 strings out of 473897
- 740735 string characters out of 5726462
- 1602454 words of memory out of 5000000
- 59174 multiletter control sequences out of 15000+600000
+ 36923 strings out of 473897
+ 742004 string characters out of 5726462
+ 1602458 words of memory out of 5000000
+ 59223 multiletter control sequences out of 15000+600000
  568747 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,7n,107p,754b,2805s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Marti\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk>
-Output written on Relatorio.pdf (25 pages, 410149 bytes).
+Output written on Relatorio.pdf (26 pages, 542876 bytes).
 PDF statistics:
- 722 PDF objects out of 1000 (max. 8388607)
- 59 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 747 PDF objects out of 1000 (max. 8388607)
+ 63 named destinations out of 1000 (max. 500000)
+ 210 words of extra memory for PDF output out of 10000 (max. 10000000)
 

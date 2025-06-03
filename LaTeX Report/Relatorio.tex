@@ -517,16 +517,16 @@ Na secção 2, iremos escolher o servidor host, cujo qual vai ser o endereço IP
 \end{figure}
 
 \newpage
-Na secção 6 iremos adicionar o IP da maquina Kali LinuxIPs à nossa Blacklist.
+Na secção 6 iremos adicionar o IP da maquina Kali Linux à nossa Blacklist.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/WAF3.png}
 	\caption{Bloqueio de IPs}
 	\label{fig:nfswarning}
 \end{figure}
 
-Na secção 8 iremos ativar o Aimbot através de Recaptcha e na secção 10 iremos adicionar Portugal à lista de paises bloqueados. \\
+Na secção 8 iremos ativar o Antibot através de Captcha e na secção 10 iremos adicionar Portugal à lista de paises bloqueados. \\
 
 \begin{figure}[h!]
 	\centering
@@ -546,12 +546,12 @@ Na secção 8 iremos ativar o Aimbot através de Recaptcha e na secção 10 irem
 \newpage
 \section{Testes com o Kali Linux}\label{testes}
 Para testar a WAF, foi utilizado o Kali Linux (\cite{kalilinux}) com o uso da ferramenta \textbf{Nikto}.
-Estes foram os resultados obtidos: \\\\
+Estes foram os resultados obtidos: \\
 
 WAF sem proteções:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/Kali1.png}
 	\caption{WAF sem Proteções}
 	\label{fig:nfswarning}
 \end{figure}
@@ -559,7 +559,7 @@ WAF sem proteções:
 IP Blacklist:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/Kali2.png}
 	\caption{IP Blacklist}
 	\label{fig:nfswarning}
 \end{figure}
@@ -568,7 +568,7 @@ IP Blacklist:
 Antibot Recaptcha:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/Kali3.png}
 	\caption{Antibot Recaptcha}
 	\label{fig:nfswarning}
 \end{figure}
@@ -576,10 +576,40 @@ Antibot Recaptcha:
 Paises Bloqueados:
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Recursos/WAF2.png}
+	\includegraphics[width=0.8\textwidth]{Recursos/Kali2.png}
 	\caption{Paises Bloqueados}
 	\label{fig:nfswarning}
 \end{figure}
+
+%---------------------------------------------------------------------------------------------------------------------------
+\newpage
+Nikto ao Servidor:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/Kali4.png}
+    \caption{Nikto Server}
+    \label{fig:nfswarning}
+\end{figure}
+
+Nikto sem Proteções:
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Recursos/Kali5.png}
+	\caption{Nikto sem Proteções}
+	\label{fig:nfswarning}
+\end{figure}
+
+Nikto com Proteções:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Recursos/Kali6.png}
+    \caption{Nikto com Proteções}
+    \label{fig:nfswarning}
+\end{figure}
+
+Concluimos assim que a WAF está a funcionar corretamente, como podemos verificar na Figura 6, o Nikto refere o
+redirecionamento para o Captcha, tambem como diferenças nas sugestões de segurança. Não só, após algum tempo
+a WAF bloqueou o IP do Kali devido ao uso do Nikto.
 
 %---------------------------------------------------------------------------------------------------------------------------
 \newpage
