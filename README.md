@@ -164,3 +164,9 @@ Make sure the `Recursos/` images and `Recursos/referencias.bib` are present and 
 ## References & resources
 
 See the bibliography and the "Relatorio.tex" file for citations and detailed steps/screenshots. The `Recursos/` folder contains the images referenced in the report.
+
+---
+
+## License
+
+- This repository is licensed under the GNU General Public License v3.0 (GPL-3.0).
